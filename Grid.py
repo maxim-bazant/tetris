@@ -6,8 +6,8 @@ class Grid(object):
     def __init__(self):
         self.square = (pygame.image.load(f"images/red_square.png").convert_alpha())
 
-        self.grid = [["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
-                     ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
+        self.grid = [["0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "n"],
+                     ["0", "0", "0", "1", "1", "1", "0", "0", "0", "0", "n"],
                      ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
                      ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
                      ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
@@ -30,7 +30,7 @@ class Grid(object):
 
         self.grid_doubles = []
 
-    def draw_grid(self):
+    def return_grid(self):
         self.grid_doubles = []
         for horizontal_number in range(len(self.grid) - 1):
             for vertical_number in range(len(self.grid[horizontal_number]) - 1):
@@ -38,4 +38,7 @@ class Grid(object):
                     self.grid_doubles.append([vertical_number, horizontal_number])
 
         return self.grid_doubles
+
+    def change_grid(self):
+        pass
 

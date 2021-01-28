@@ -13,7 +13,10 @@ class Game(object):
         self.squares = []
         self.x = 0
         self.y = 100
+        self.falling_count = 0
         self.grid = Grid()
+        self.change_x = 0
+        self.change_y = 0
 
     def events(self):
         for event in pygame.event.get():
@@ -21,12 +24,22 @@ class Game(object):
                 self.running = False
 
     def run(self):
-        for double in self.grid.draw_grid():
+        self.squares = []
+        for double in self.grid.return_grid():
             self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
 
         self.blit()
 
+        self.falling_count += 1
+        if self.falling_count % 100 == 0:  # falling count is for the pieces to slowly go down
+            for square in reversed(self.squares):
+                self.change_x = square.x // 40 - 1
+                self.change_y = square.y // 40 - 1
+                self.grid.grid[self.change_y][self.change_x] = "0"
+                self.grid.grid[self.change_y + 1][self.change_x] = "1"
+
     def blit(self):
+        win.fill(bg_color)
         win.blit(self.edge, (0, 0))
         for square in self.squares:
             square.blit_square()
