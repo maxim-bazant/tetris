@@ -4,4 +4,5 @@ import pygame
 
 class Shape(object):
     def __init__(self):
-        self.grid = ["1"]
+        self.grid = [["0", "a", "0"],
+                     ["a", "a", "a"]]
