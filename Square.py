@@ -6,7 +6,7 @@ class Square(object):
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.image = pygame.image.load("images/red_square.png").convert_alpha()
+        self.image = pygame.image.load("images/red_square.png").convert()
         self.width = self.image.get_rect().width
         self.height = self.image.get_rect().height
 
