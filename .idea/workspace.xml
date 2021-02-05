@@ -164,6 +164,6 @@
     <state x="873" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1612525802710" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tetris$Game.coverage" NAME="Game Coverage Results" MODIFIED="1612538654991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tetris$Game.coverage" NAME="Game Coverage Results" MODIFIED="1612538763392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

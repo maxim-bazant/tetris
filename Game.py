@@ -43,16 +43,16 @@ class Game(object):
 
         keys = pygame.key.get_pressed()
         ok_down = True
-        ok_right = True
-        ok_left = True
-
-        self.move(keys, ok_right, ok_left)
 
         self.falling_count += 1
-        if self.falling_count % 10 == 0:  # falling count is for the pieces to slowly go down
+        if self.falling_count % 50 == 0:  # falling count is for the pieces to slowly go down
             self.fall_down(ok_down)
         if self.falling_count > 100:
             self.falling_count = 0
+
+        ok_right = True
+        ok_left = True
+        self.move(keys, ok_right, ok_left)
 
     def add_shape(self):
         self.current_y_index = self.start_y_index
