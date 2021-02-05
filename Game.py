@@ -23,6 +23,9 @@ class Game(object):
         self.button_down = False
         self.moving_right = False
         self.moving_left = False
+        self.speed = 75
+        self.normal_speed = 75
+        self.quick_down_speed = 5
 
     def events(self):
         for event in pygame.event.get():
@@ -31,8 +34,6 @@ class Game(object):
 
     def run(self):
         self.blit()
-
-        print(len(self.squares))
 
         if not self.movable_squares:
             self.add_shape()
@@ -48,7 +49,7 @@ class Game(object):
         ok_down = True
 
         self.falling_count += 1
-        if self.falling_count % 50 == 0:  # falling count is for the pieces to slowly go down
+        if self.falling_count % self.speed == 0:  # falling count is for the pieces to slowly go down
             self.fall_down(ok_down)
 
         ok_right = True
@@ -56,6 +57,7 @@ class Game(object):
         self.move(keys, ok_right, ok_left)
 
     def add_shape(self):
+        self.speed = self.normal_speed
         self.falling_count = 0
         self.current_y_index = self.start_y_index
         for row in self.shapes[0].grid:
@@ -120,33 +122,37 @@ class Game(object):
                 ok_left = False
         # end of control
 
-        if keys[pygame.K_RIGHT] and not self.button_down and not self.moving_left and ok_right:
-            self.moving_right = True
-            for double_ in reversed(self.grid.return_grid()[1]):
+        if not self.speed == self.quick_down_speed:
+            if keys[pygame.K_RIGHT] and not self.button_down and not self.moving_left and ok_right:
+                self.moving_right = True
+                for double_ in reversed(self.grid.return_grid()[1]):
+                    if ok_right:
+                        self.grid.grid[double_[1]][double_[0]] = "0"
+                        self.grid.grid[double_[1]][double_[0] + 1] = "a"
+                    else:
+                        for double in self.grid.return_grid()[1]:
+                            self.grid.grid[double[1]][double[0]] = "1"
                 if ok_right:
-                    self.grid.grid[double_[1]][double_[0]] = "0"
-                    self.grid.grid[double_[1]][double_[0] + 1] = "a"
-                else:
-                    for double in self.grid.return_grid()[1]:
-                        self.grid.grid[double[1]][double[0]] = "1"
-            if ok_right:
-                self.current_x_index += 1
-        else:
-            self.moving_right = False
+                    self.current_x_index += 1
+            else:
+                self.moving_right = False
 
-        if keys[pygame.K_LEFT] and not self.button_down and not self.moving_right and ok_left:
-            self.moving_left = True
-            for double_ in self.grid.return_grid()[1]:
+            if keys[pygame.K_LEFT] and not self.button_down and not self.moving_right and ok_left:
+                self.moving_left = True
+                for double_ in self.grid.return_grid()[1]:
+                    if ok_left:
+                        self.grid.grid[double_[1]][double_[0]] = "0"
+                        self.grid.grid[double_[1]][double_[0] - 1] = "a"
+                    else:
+                        for double in self.grid.return_grid()[1]:
+                            self.grid.grid[double[1]][double[0]] = "1"
                 if ok_left:
-                    self.grid.grid[double_[1]][double_[0]] = "0"
-                    self.grid.grid[double_[1]][double_[0] - 1] = "a"
-                else:
-                    for double in self.grid.return_grid()[1]:
-                        self.grid.grid[double[1]][double[0]] = "1"
-            if ok_left:
-                self.current_x_index -= 1
-        else:
-            self.moving_left = False
+                    self.current_x_index -= 1
+            else:
+                self.moving_left = False
+
+        if keys[pygame.K_DOWN]:
+            self.speed = self.quick_down_speed
 
     def blit(self):
         win.fill(bg_color)
