@@ -13,12 +13,16 @@ class Game(object):
         self.win = win
         self.squares = []  # squares that can nt move anymore
         self.movable_squares = []
-        self.x_index = 5
+        self.x_index = 3
         self.y_index = 0
+        self.start_x_index = 3
+        self.start_y_index = 0
         self.falling_count = 0
         self.grid = Grid()
-        self.change_x = 0
-        self.change_y = 0
+        self.shapes = [Shape()]
+        self.button_down = False
+        self.moving_right = False
+        self.moving_left = False
 
     def events(self):
         for event in pygame.event.get():
@@ -37,26 +41,79 @@ class Game(object):
         for double in self.grid.return_grid()[1]:
             self.movable_squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
 
+        keys = pygame.key.get_pressed()
         ok = True
+
+        self.move(keys, ok)
+
         self.falling_count += 1
         if self.falling_count % 100 == 0:  # falling count is for the pieces to slowly go down
-            for double_ in reversed(self.grid.return_grid()[1]):
-                print(double_[1])
-                if self.grid.grid[double_[1] + 1][double_[0]] != "1" and double_[1] != 19:
-                    pass
-                else:
-                    ok = False
+            self.fall_down(ok)
 
+    def add_shape(self):
+        self.y_index = self.start_y_index
+        for row in self.shapes[0].grid:
+            self.x_index = self.start_x_index
+            for char in row:
+                if char == "a":
+                    self.grid.grid[self.y_index][self.x_index] = char
+                    self.x_index += 1
+                else:
+                    self.x_index += 1
+            self.y_index += 1
+
+    def fall_down(self, ok):
+        for double_ in reversed(self.grid.return_grid()[1]):
+            if self.grid.grid[double_[1] + 1][double_[0]] != "1" and double_[1] != 19:
+                pass
+            else:
+                ok = False
+
+        for double_ in reversed(self.grid.return_grid()[1]):
+            if ok:
+                self.grid.grid[double_[1]][double_[0]] = "0"
+                self.grid.grid[double_[1] + 1][double_[0]] = "a"
+            else:
+                for double in self.grid.return_grid()[1]:
+                    self.grid.grid[double[1]][double[0]] = "1"
+
+    def move(self, keys, ok):
+        # button down handling
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                self.button_down = True
+            elif event.type == pygame.KEYUP:
+                self.button_down = False
+            if event.type == pygame.QUIT:
+                self.running = False
+
+        if self.moving_right or self.moving_left:
+            self.button_down = True
+
+        # movement handling
+        if keys[pygame.K_RIGHT] and not self.button_down and not self.moving_left:
+            self.moving_right = True
             for double_ in reversed(self.grid.return_grid()[1]):
                 if ok:
                     self.grid.grid[double_[1]][double_[0]] = "0"
-                    self.grid.grid[double_[1] + 1][double_[0]] = "a"
+                    self.grid.grid[double_[1]][double_[0] + 1] = "a"
                 else:
                     for double in self.grid.return_grid()[1]:
                         self.grid.grid[double[1]][double[0]] = "1"
+        else:
+            self.moving_right = False
 
-    def add_shape(self):
-        pass
+        if keys[pygame.K_LEFT] and not self.button_down and not self.moving_right:
+            self.moving_left = True
+            for double_ in self.grid.return_grid()[1]:
+                if ok:
+                    self.grid.grid[double_[1]][double_[0]] = "0"
+                    self.grid.grid[double_[1]][double_[0] - 1] = "a"
+                else:
+                    for double in self.grid.return_grid()[1]:
+                        self.grid.grid[double[1]][double[0]] = "1"
+        else:
+            self.moving_left = False
 
     def blit(self):
         win.fill(bg_color)
@@ -70,9 +127,8 @@ class Game(object):
 g = Game()
 
 while g.running:
-    g.events()
     g.run()
+    g.events()
 
     g.clock.tick(FPS)
     pygame.display.update()
-
