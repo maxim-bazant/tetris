@@ -32,9 +32,12 @@ class Game(object):
     def run(self):
         self.blit()
 
+        print(len(self.squares))
+
         if not self.movable_squares:
             self.add_shape()
 
+        self.squares = []
         self.movable_squares = []
         for double in self.grid.return_grid()[0]:
             self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
@@ -47,14 +50,13 @@ class Game(object):
         self.falling_count += 1
         if self.falling_count % 50 == 0:  # falling count is for the pieces to slowly go down
             self.fall_down(ok_down)
-        if self.falling_count > 100:
-            self.falling_count = 0
 
         ok_right = True
         ok_left = True
         self.move(keys, ok_right, ok_left)
 
     def add_shape(self):
+        self.falling_count = 0
         self.current_y_index = self.start_y_index
         for row in self.shapes[0].grid:
             self.current_x_index = self.start_x_index
