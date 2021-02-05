@@ -109,10 +109,16 @@ class Game(object):
             ok_left = False
 
         for double_ in reversed(self.grid.return_grid()[1]):
-            if self.grid.grid[double_[1] + 1][double_[0]] != "1" and double_[1] != 19:
+            if self.grid.grid[double_[1]][double_[0] + 1] != "1":
                 pass
             else:
                 ok_right = False
+        for double_ in reversed(self.grid.return_grid()[1]):
+            if self.grid.grid[double_[1]][double_[0] - 1] != "1":
+                pass
+            else:
+                ok_left = False
+        # end of control
 
         if keys[pygame.K_RIGHT] and not self.button_down and not self.moving_left and ok_right:
             self.moving_right = True
