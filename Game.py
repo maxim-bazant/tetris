@@ -9,7 +9,7 @@ class Game(object):
     def __init__(self):
         self.running = True
         self.clock = pygame.time.Clock()
-        self.edge = pygame.image.load("images/bg.png").convert()
+        self.edge = pygame.image.load("images/bg.png").convert_alpha()
         self.win = win
         self.squares = []  # squares that can nt move anymore
         self.movable_squares = []
