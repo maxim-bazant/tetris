@@ -1,8 +1,9 @@
 import pygame
+import random
 from settings import *
 from Grid import Grid
 from Square import Square
-from Shape import Shape
+from Shapes import *
 
 
 class Game(object):
@@ -19,13 +20,16 @@ class Game(object):
         self.start_y_index = 0
         self.falling_count = 0
         self.grid = Grid()
-        self.shapes = [Shape()]
+        self.colors = ["a", "b", "c", "d", "e", "f"]
+        self.shapes = [DotShape(self.colors[0]), TwoSquareShape(self.colors[0]), FourSquareShape(self.colors[0]),
+                       ZShape(self.colors[0]), WShape(self.colors[0]), LShape(self.colors[0]), IShape(self.colors[0])]
         self.button_down = False
         self.moving_right = False
         self.moving_left = False
         self.speed = 75
         self.normal_speed = 75
         self.quick_down_speed = 5
+        self.current_shape_index = 0
 
     def events(self):
         for event in pygame.event.get():
@@ -57,10 +61,11 @@ class Game(object):
         self.move(keys, ok_right, ok_left)
 
     def add_shape(self):
+        self.current_shape_index = random.randint(0, len(self.shapes) - 1)
         self.speed = self.normal_speed
         self.falling_count = 0
         self.current_y_index = self.start_y_index
-        for row in self.shapes[0].grid:
+        for row in self.shapes[self.current_shape_index].grid:
             self.current_x_index = self.start_x_index
             for char in row:
                 if char == "a":
@@ -101,7 +106,7 @@ class Game(object):
 
         # movement handling
         # control
-        if self.current_x_index < 7:
+        if self.current_x_index < 10 - self.shapes[self.current_shape_index].edge:
             ok_right = True
         else:
             ok_right = False

@@ -43,3 +43,6 @@ class Grid(object):
 
         return [self.square_doubles, self.movable_square]
 
+    def shift_down(self):
+        pass
+
