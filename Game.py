@@ -27,9 +27,9 @@ class Game(object):
         self.button_down = False
         self.moving_right = False
         self.moving_left = False
-        self.speed = 75
-        self.normal_speed = 75
-        self.quick_down_speed = 5
+        self.speed = 50
+        self.normal_speed = 50
+        self.quick_down_speed = 2
         self.current_shape_index = 0
 
     def events(self):
@@ -49,11 +49,8 @@ class Game(object):
         if not self.movable_squares:
             self.add_shape()
 
-        self.squares = []
         self.movable_squares = []
-        for double in self.grid.return_squares():
-            self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
-        for double in self.grid.return_movable_square():
+        for double in self.grid.return_squares()[1]:
             self.movable_squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
 
         keys = pygame.key.get_pressed()
@@ -84,7 +81,7 @@ class Game(object):
         self.current_x_index = self.start_x_index
 
     def fall_down(self, ok):
-        movable_square_list = self.grid.return_movable_square()
+        movable_square_list = self.grid.return_squares()[1]
         for double_ in reversed(movable_square_list):
             if self.grid.grid[double_[1] + 1][double_[0]] != "1" and double_[1] != 19:
                 pass
@@ -98,6 +95,8 @@ class Game(object):
             else:
                 for double in movable_square_list:
                     self.grid.grid[double[1]][double[0]] = "1"
+                    print(double)
+                    self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
 
     def move(self, keys):
         # button down handling
@@ -115,7 +114,7 @@ class Game(object):
         else:
             ok_left = False
 
-        movable_squares = self.grid.return_movable_square()
+        movable_squares = self.grid.return_squares()[1]
         for double_ in reversed(movable_squares):
             if self.grid.grid[double_[1]][double_[0] + 1] != "1":
                 pass
@@ -131,12 +130,12 @@ class Game(object):
         if not self.speed == self.quick_down_speed:
             if keys[pygame.K_RIGHT] and not self.button_down and not self.moving_left and ok_right:
                 self.moving_right = True
-                for double_ in reversed(self.grid.return_movable_square()):
+                for double_ in reversed(self.grid.return_squares()[1]):
                     if ok_right:
                         self.grid.grid[double_[1]][double_[0]] = "0"
                         self.grid.grid[double_[1]][double_[0] + 1] = "a"
                     else:
-                        for double in self.grid.return_movable_square():
+                        for double in self.grid.return_squares()[1]:
                             self.grid.grid[double[1]][double[0]] = "1"
                 if ok_right:
                     self.current_x_index += 1
@@ -145,7 +144,7 @@ class Game(object):
 
             if keys[pygame.K_LEFT] and not self.button_down and not self.moving_right and ok_left:
                 self.moving_left = True
-                movable_squares = self.grid.return_movable_square()
+                movable_squares = self.grid.return_squares()[1]
                 for double_ in movable_squares:
                     if ok_left:
                         self.grid.grid[double_[1]][double_[0]] = "0"
