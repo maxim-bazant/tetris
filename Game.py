@@ -29,7 +29,7 @@ class Game(object):
         self.moving_left = False
         self.speed = 50
         self.normal_speed = 50
-        self.quick_down_speed = 2
+        self.quick_down_speed = 4
         self.current_shape_index = 0
 
     def events(self):
@@ -95,7 +95,6 @@ class Game(object):
             else:
                 for double in movable_square_list:
                     self.grid.grid[double[1]][double[0]] = "1"
-                    print(double)
                     self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
 
     def move(self, keys):
