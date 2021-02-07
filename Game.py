@@ -1,4 +1,5 @@
 import pygame
+import cProfile
 import random
 from settings import *
 from Grid import Grid
@@ -35,6 +36,12 @@ class Game(object):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
+            if event.type == pygame.KEYDOWN:
+                self.button_down = False
+            elif event.type == pygame.KEYUP:
+                self.button_down = True
+            if event.type == pygame.QUIT:
+                self.running = False
 
     def run(self):
         self.blit()
@@ -44,9 +51,9 @@ class Game(object):
 
         self.squares = []
         self.movable_squares = []
-        for double in self.grid.return_grid()[0]:
+        for double in self.grid.return_squares():
             self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
-        for double in self.grid.return_grid()[1]:
+        for double in self.grid.return_movable_square():
             self.movable_squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
 
         keys = pygame.key.get_pressed()
@@ -58,7 +65,7 @@ class Game(object):
 
         ok_right = True
         ok_left = True
-        self.move(keys, ok_right, ok_left)
+        self.move(keys)
 
     def add_shape(self):
         self.current_shape_index = random.randint(0, len(self.shapes) - 1)
@@ -77,30 +84,23 @@ class Game(object):
         self.current_x_index = self.start_x_index
 
     def fall_down(self, ok):
-        for double_ in reversed(self.grid.return_grid()[1]):
+        movable_square_list = self.grid.return_movable_square()
+        for double_ in reversed(movable_square_list):
             if self.grid.grid[double_[1] + 1][double_[0]] != "1" and double_[1] != 19:
                 pass
             else:
                 ok = False
 
-        for double_ in reversed(self.grid.return_grid()[1]):
+        for double_ in reversed(movable_square_list):
             if ok:
                 self.grid.grid[double_[1]][double_[0]] = "0"
                 self.grid.grid[double_[1] + 1][double_[0]] = "a"
             else:
-                for double in self.grid.return_grid()[1]:
+                for double in movable_square_list:
                     self.grid.grid[double[1]][double[0]] = "1"
 
-    def move(self, keys, ok_right, ok_left):
+    def move(self, keys):
         # button down handling
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                self.button_down = True
-            elif event.type == pygame.KEYUP:
-                self.button_down = False
-            if event.type == pygame.QUIT:
-                self.running = False
-
         if self.moving_right or self.moving_left:
             self.button_down = True
 
@@ -115,12 +115,13 @@ class Game(object):
         else:
             ok_left = False
 
-        for double_ in reversed(self.grid.return_grid()[1]):
+        movable_squares = self.grid.return_movable_square()
+        for double_ in reversed(movable_squares):
             if self.grid.grid[double_[1]][double_[0] + 1] != "1":
                 pass
             else:
                 ok_right = False
-        for double_ in reversed(self.grid.return_grid()[1]):
+        for double_ in reversed(movable_squares):
             if self.grid.grid[double_[1]][double_[0] - 1] != "1":
                 pass
             else:
@@ -130,12 +131,12 @@ class Game(object):
         if not self.speed == self.quick_down_speed:
             if keys[pygame.K_RIGHT] and not self.button_down and not self.moving_left and ok_right:
                 self.moving_right = True
-                for double_ in reversed(self.grid.return_grid()[1]):
+                for double_ in reversed(self.grid.return_movable_square()):
                     if ok_right:
                         self.grid.grid[double_[1]][double_[0]] = "0"
                         self.grid.grid[double_[1]][double_[0] + 1] = "a"
                     else:
-                        for double in self.grid.return_grid()[1]:
+                        for double in self.grid.return_movable_square():
                             self.grid.grid[double[1]][double[0]] = "1"
                 if ok_right:
                     self.current_x_index += 1
@@ -144,12 +145,13 @@ class Game(object):
 
             if keys[pygame.K_LEFT] and not self.button_down and not self.moving_right and ok_left:
                 self.moving_left = True
-                for double_ in self.grid.return_grid()[1]:
+                movable_squares = self.grid.return_movable_square()
+                for double_ in movable_squares:
                     if ok_left:
                         self.grid.grid[double_[1]][double_[0]] = "0"
                         self.grid.grid[double_[1]][double_[0] - 1] = "a"
                     else:
-                        for double in self.grid.return_grid()[1]:
+                        for double in movable_squares:
                             self.grid.grid[double[1]][double[0]] = "1"
                 if ok_left:
                     self.current_x_index -= 1

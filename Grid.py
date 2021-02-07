@@ -31,17 +31,23 @@ class Grid(object):
         self.square_doubles = []
         self.movable_square = []
 
-    def return_grid(self):
+    def return_squares(self):
         self.square_doubles = []
-        self.movable_square = []
         for horizontal_number in range(len(self.grid) - 1):
             for vertical_number in range(len(self.grid[horizontal_number]) - 1):
                 if self.grid[horizontal_number][vertical_number] == "1":
                     self.square_doubles.append([vertical_number, horizontal_number])
-                elif self.grid[horizontal_number][vertical_number] == "a":
+
+        return self.square_doubles
+
+    def return_movable_square(self):
+        self.movable_square = []
+        for horizontal_number in range(len(self.grid) - 1):
+            for vertical_number in range(len(self.grid[horizontal_number]) - 1):
+                if self.grid[horizontal_number][vertical_number] == "a":
                     self.movable_square.append([vertical_number, horizontal_number])
 
-        return [self.square_doubles, self.movable_square]
+        return self.movable_square
 
     def shift_down(self):
         pass
