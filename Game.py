@@ -65,7 +65,6 @@ class Game(object):
         ok_right = True
         ok_left = True
         self.move(keys)
-        self.game_over()
 
     def add_shape(self):
         self.current_shape_index = random.randint(0, len(self.shapes) - 1)
@@ -81,7 +80,7 @@ class Game(object):
                 else:
                     if self.current_y_index - self.shapes[self.current_shape_index].height >= 0:
                         if self.grid.grid[self.current_y_index - self.shapes[self.current_shape_index].height][self.current_x_index] == "1":
-                            self.game_over_ = True
+                            self.game_over()
 
                     self.current_x_index += 1
             self.current_y_index += 1
@@ -167,13 +166,12 @@ class Game(object):
             self.speed = self.quick_down_speed
 
     def game_over(self):
-        if self.game_over_:
-            print("game over")
-            self.squares = []
-            self.movable_squares = []
-            time.sleep(2)
-            self.game_over_ = False
-            self.grid.reset_grid()
+        print("game over")
+        self.squares = []
+        self.movable_squares = []
+        time.sleep(2)
+        self.game_over_ = False
+        self.grid.reset_grid()
 
     def blit(self):
         win.fill(bg_color)
