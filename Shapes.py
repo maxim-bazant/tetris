@@ -5,7 +5,7 @@ import pygame
 class DotShape(object):
     def __init__(self, color):
         self.color = color
-        self.width = 2
+        self.width = 1
         self.height = 3
         self.grid = [[self.color, "0", "0", "0"],
                      ["0", "0", "0", "0"],
@@ -89,7 +89,7 @@ class LShape(object):
 class IShape(object):
     def __init__(self, color):
         self.color = color
-        self.width = 1
+        self.width = 4
         self.height = 3
         self.grid = [[self.color, self.color, self.color, self.color],
                      ["0", "0", "0", "0"],
