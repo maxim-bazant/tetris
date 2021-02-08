@@ -5,7 +5,8 @@ import pygame
 class DotShape(object):
     def __init__(self, color):
         self.color = color
-        self.edge = 1
+        self.width = 2
+        self.height = 3
         self.grid = [[self.color, "0", "0", "0"],
                      ["0", "0", "0", "0"],
                      ["0", "0", "0", "0"],
@@ -18,7 +19,8 @@ class DotShape(object):
 class TwoSquareShape(object):
     def __init__(self, color):
         self.color = color
-        self.edge = 1
+        self.width = 1
+        self.height = 2
         self.grid = [[self.color, "0", "0", "0"],
                      [self.color, "0", "0", "0"],
                      ["0", "0", "0", "0"],
@@ -31,7 +33,8 @@ class TwoSquareShape(object):
 class FourSquareShape(object):
     def __init__(self, color):
         self.color = color
-        self.edge = 2
+        self.width = 2
+        self.height = 2
         self.grid = [[self.color, self.color, "0", "0"],
                      [self.color, self.color, "0", "0"],
                      ["0", "0", "0", "0"],
@@ -44,7 +47,8 @@ class FourSquareShape(object):
 class ZShape(object):
     def __init__(self, color):
         self.color = color
-        self.edge = 3
+        self.width = 3
+        self.height = 2
         self.grid = [["0", self.color, self.color, "0"],
                      [self.color, self.color, "0", "0"],
                      ["0", "0", "0", "0"],
@@ -57,7 +61,8 @@ class ZShape(object):
 class WShape(object):
     def __init__(self, color):
         self.color = color
-        self.edge = 3
+        self.width = 3
+        self.height = 2
         self.grid = [["0", self.color, "0", "0"],
                      [self.color, self.color, self.color, "0"],
                      ["0", "0", "0", "0"],
@@ -70,7 +75,8 @@ class WShape(object):
 class LShape(object):
     def __init__(self, color):
         self.color = color
-        self.edge = 3
+        self.width = 3
+        self.height = 2
         self.grid = [[self.color, "0", "0", "0"],
                      [self.color, self.color, self.color, "0"],
                      ["0", "0", "0", "0"],
@@ -83,11 +89,12 @@ class LShape(object):
 class IShape(object):
     def __init__(self, color):
         self.color = color
-        self.edge = 1
-        self.grid = [[self.color, "0", "0", "0"],
-                     [self.color, "0", "0", "0"],
-                     [self.color, "0", "0", "0"],
-                     [self.color, "0", "0", "0"]]
+        self.width = 1
+        self.height = 3
+        self.grid = [[self.color, self.color, self.color, self.color],
+                     ["0", "0", "0", "0"],
+                     ["0", "0", "0", "0"],
+                     ["0", "0", "0", "0"]]
 
     def rotate(self):
         pass

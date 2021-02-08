@@ -1,6 +1,7 @@
 import pygame
 import cProfile
 import random
+import time
 from settings import *
 from Grid import Grid
 from Square import Square
@@ -31,6 +32,7 @@ class Game(object):
         self.normal_speed = 50
         self.quick_down_speed = 4
         self.current_shape_index = 0
+        self.game_over_ = False
 
     def events(self):
         for event in pygame.event.get():
@@ -63,6 +65,7 @@ class Game(object):
         ok_right = True
         ok_left = True
         self.move(keys)
+        self.game_over()
 
     def add_shape(self):
         self.current_shape_index = random.randint(0, len(self.shapes) - 1)
@@ -76,6 +79,10 @@ class Game(object):
                     self.grid.grid[self.current_y_index][self.current_x_index] = char
                     self.current_x_index += 1
                 else:
+                    if self.current_y_index - self.shapes[self.current_shape_index].height >= 0:
+                        if self.grid.grid[self.current_y_index - self.shapes[self.current_shape_index].height][self.current_x_index] == "1":
+                            self.game_over_ = True
+
                     self.current_x_index += 1
             self.current_y_index += 1
         self.current_x_index = self.start_x_index
@@ -104,7 +111,7 @@ class Game(object):
 
         # movement handling
         # control
-        if self.current_x_index < 10 - self.shapes[self.current_shape_index].edge:
+        if self.current_x_index < 10 - self.shapes[self.current_shape_index].width:
             ok_right = True
         else:
             ok_right = False
@@ -158,6 +165,15 @@ class Game(object):
 
         if keys[pygame.K_DOWN]:
             self.speed = self.quick_down_speed
+
+    def game_over(self):
+        if self.game_over_:
+            print("game over")
+            self.squares = []
+            self.movable_squares = []
+            time.sleep(2)
+            self.game_over_ = False
+            self.grid.reset_grid()
 
     def blit(self):
         win.fill(bg_color)
