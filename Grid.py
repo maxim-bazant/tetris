@@ -62,7 +62,12 @@ class Grid(object):
                      ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
                      ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
                      ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
-                     ["n", "n", "n", "n", "n", "n", "n", "n", "n", "n", "n"]]
+                     ["n", "n", "n", "n", "n", "n", "n", "n", "n", "n", "0"]]
+
+    def check_for_line(self):
+        for row in self.grid:
+            if "0" not in row:
+                print(row)
 
     def shift_down(self):
         pass
