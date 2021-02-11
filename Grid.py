@@ -1,4 +1,5 @@
 import pygame
+import time
 from settings import *
 
 
@@ -24,7 +25,7 @@ class Grid(object):
                      ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
                      ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
                      ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
-                     ["n", "n", "n", "n", "n", "n", "n", "n", "n", "n", "n"]]
+                     ["n", "n", "n", "n", "n", "n", "n", "n", "n", "n", "0"]]
 
         self.square_doubles = []
         self.movable_square = []
@@ -67,8 +68,14 @@ class Grid(object):
     def check_for_line(self):
         for row in self.grid:
             if "0" not in row:
-                print(row)
+                print(f"line {self.grid.index(row)} is full")
+                for number in range(len(row) - 1):
+                    self.grid[self.grid.index(row)][number] = "0"
 
-    def shift_down(self):
-        pass
+                self.shift_down(self.grid.index(row))
+                return True
+
+    def shift_down(self, row_index):
+        print("shift_down")
+        time.sleep(1)
 

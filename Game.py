@@ -51,6 +51,11 @@ class Game(object):
         if not self.movable_squares:
             self.add_shape()
 
+        if self.grid.check_for_line():  # if line full it changes it into "0" instead of "1"
+            self.squares = []
+            for double in self.grid.return_squares()[0]:
+                self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+
         self.movable_squares = []
         for double in self.grid.return_squares()[1]:
             self.movable_squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
@@ -102,6 +107,8 @@ class Game(object):
                 for double in movable_square_list:
                     self.grid.grid[double[1]][double[0]] = "1"
                     self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+
+        # here - shape is down and new is being added. Time for full_line_check()
 
     def move(self, keys):
         # button down handling
