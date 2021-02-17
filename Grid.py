@@ -29,6 +29,9 @@ class Grid(object):
 
         self.square_doubles = []
         self.movable_square = []
+        self.line_full = False
+        self.latest_row_index = None
+        self.last_row_index = None
 
     def return_squares(self):
         self.movable_square = []
@@ -68,14 +71,22 @@ class Grid(object):
     def check_for_line(self):
         for row in self.grid:
             if "0" not in row:
+                self.line_full = True
+
+                if self.latest_row_index is None:
+                    self.latest_row_index = self.grid.index(row)
+                self.last_row_index = self.grid.index(row)
+                print(self.last_row_index)
                 print(f"line {self.grid.index(row)} is full")
                 for number in range(len(row) - 1):
                     self.grid[self.grid.index(row)][number] = "0"
 
-                self.shift_down(self.grid.index(row))
-                return True
+                self.shift_down(self.latest_row_index)
+
+        if self.line_full:
+            return True
 
     def shift_down(self, row_index):
-        print("shift_down")
-        time.sleep(1)
+        for row in reversed(range(0, row_index)):
+            print(row)
 

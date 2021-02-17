@@ -33,6 +33,7 @@ class Game(object):
         self.quick_down_speed = 4
         self.current_shape_index = 0
         self.game_over_ = False
+        self.line_full = False
 
     def events(self):
         for event in pygame.event.get():
@@ -51,10 +52,12 @@ class Game(object):
         if not self.movable_squares:
             self.add_shape()
 
-        if self.grid.check_for_line():  # if line full it changes it into "0" instead of "1"
+        if self.line_full:  # if line full it changes it into "0" instead of "1"
             self.squares = []
+
             for double in self.grid.return_squares()[0]:
                 self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+            self.line_full = False
 
         self.movable_squares = []
         for double in self.grid.return_squares()[1]:
@@ -71,8 +74,14 @@ class Game(object):
         ok_left = True
         self.move(keys)
 
+    def check_for_full_line(self):
+        if self.grid.check_for_line():
+            self.line_full = True
+
     def add_shape(self):
-        self.current_shape_index = random.randint(0, len(self.shapes) - 1)
+        self.check_for_full_line()
+
+        self.current_shape_index = 2  # random.randint(0, len(self.shapes) - 1)
         self.speed = self.normal_speed
         self.falling_count = 0
         self.current_y_index = self.start_y_index
