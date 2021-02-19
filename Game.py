@@ -1,5 +1,5 @@
 import pygame
-import cProfile
+import platform
 import random
 import time
 from settings import *
@@ -28,9 +28,15 @@ class Game(object):
         self.button_down = False
         self.moving_right = False
         self.moving_left = False
-        self.speed = 50
-        self.normal_speed = 50
-        self.quick_down_speed = 4
+        if platform.uname().system == "Linux":
+            print("linux")
+            self.speed = 20
+            self.normal_speed = 20
+            self.quick_down_speed = 2
+        else:
+            self.speed = 50
+            self.normal_speed = 50
+            self.quick_down_speed = 4
         self.current_shape_index = 0
         self.game_over_ = False
         self.line_full = False
@@ -81,7 +87,7 @@ class Game(object):
     def add_shape(self):
         self.check_for_full_line()
 
-        self.current_shape_index = 2  # random.randint(0, len(self.shapes) - 1)
+        self.current_shape_index = random.randint(0, len(self.shapes) - 1)
         self.speed = self.normal_speed
         self.falling_count = 0
         self.current_y_index = self.start_y_index
@@ -92,9 +98,7 @@ class Game(object):
                     self.grid.grid[self.current_y_index][self.current_x_index] = char
                     self.current_x_index += 1
                 else:
-                    if self.current_y_index - self.shapes[self.current_shape_index].height >= 0:
-                        if self.grid.grid[self.current_y_index - self.shapes[self.current_shape_index].height][self.current_x_index] == "1":
-                            self.game_over()
+                    pass
 
                     self.current_x_index += 1
             self.current_y_index += 1
