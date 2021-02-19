@@ -91,7 +91,7 @@
       <workItem from="1612791915656" duration="10580000" />
       <workItem from="1612814072976" duration="2223000" />
       <workItem from="1612906432793" duration="1669000" />
-      <workItem from="1613075696443" duration="12164000" />
+      <workItem from="1613075696443" duration="14134000" />
     </task>
     <task id="LOCAL-00001" summary="falling peaces">
       <created>1611847897281</created>
@@ -226,7 +226,21 @@
       <option name="project" value="LOCAL" />
       <updated>1613598377757</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="small changes, trying out platform module">
+      <created>1613682450156</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1613682450156</updated>
+    </task>
+    <task id="LOCAL-00021" summary="full line checker and all lines above shift done">
+      <created>1613734172099</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1613734172099</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +259,9 @@
     <MESSAGE value="full line checker" />
     <MESSAGE value="full line check. When full it changes &quot;1&quot; to &quot;0&quot;. Problem is the last shape added to the full line isn't yet blited in the line but above" />
     <MESSAGE value="small changes. Mainly full line checker" />
-    <option name="LAST_COMMIT_MESSAGE" value="small changes. Mainly full line checker" />
+    <MESSAGE value="small changes, trying out platform module" />
+    <MESSAGE value="full line checker and all lines above shift done" />
+    <option name="LAST_COMMIT_MESSAGE" value="full line checker and all lines above shift done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="4576" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612717669621">
@@ -253,10 +269,10 @@
     </state>
     <state x="736" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1611145290487" />
     <state x="4576" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612717669621" />
-    <state x="525" y="282" key="CommitChangelistDialog2" timestamp="1613598376380">
+    <state x="525" y="282" key="CommitChangelistDialog2" timestamp="1613734171470">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="525" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613598376380" />
+    <state x="525" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613734171470" />
     <state x="4744" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718058902" />
     <state width="1306" height="466" key="DebuggerActiveHint" timestamp="1612717835130">
       <screen x="3840" y="0" width="2560" height="1400" />
@@ -275,34 +291,34 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1099" y="393" key="Github.UntrackedFilesDialog/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1611774636547" />
-    <state width="2517" height="628" key="GridCell.Tab.0.bottom" timestamp="1613682044001">
+    <state width="2517" height="628" key="GridCell.Tab.0.bottom" timestamp="1613734189070">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="628" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613682044001" />
+    <state width="2517" height="628" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613734189070" />
     <state width="2517" height="649" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="628" key="GridCell.Tab.0.center" timestamp="1613682044001">
+    <state width="2517" height="628" key="GridCell.Tab.0.center" timestamp="1613734189070">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="628" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613682044001" />
+    <state width="2517" height="628" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613734189070" />
     <state width="2517" height="649" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="628" key="GridCell.Tab.0.left" timestamp="1613682044000">
+    <state width="2517" height="628" key="GridCell.Tab.0.left" timestamp="1613734189070">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="628" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613682044000" />
+    <state width="2517" height="628" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613734189070" />
     <state width="2517" height="649" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="628" key="GridCell.Tab.0.right" timestamp="1613682044001">
+    <state width="2517" height="628" key="GridCell.Tab.0.right" timestamp="1613734189070">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="628" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613682044001" />
+    <state width="2517" height="628" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613734189070" />
     <state width="2517" height="649" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
     <state x="4621" y="345" key="SettingsEditor" timestamp="1612717743062">
       <screen x="3840" y="0" width="2560" height="1400" />
     </state>
     <state x="4621" y="345" key="SettingsEditor/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612717743062" />
-    <state x="873" y="434" key="Vcs.Push.Dialog.v2" timestamp="1613598382977">
+    <state x="873" y="434" key="Vcs.Push.Dialog.v2" timestamp="1613734173840">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="873" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613598382977" />
+    <state x="873" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1613734173840" />
     <state x="4713" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718062434" />
     <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613681314760">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -315,6 +331,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tetris$.coverage" NAME=" Coverage Results" MODIFIED="1612728468301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/tetris$Game.coverage" NAME="Game Coverage Results" MODIFIED="1613682419410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tetris$Game.coverage" NAME="Game Coverage Results" MODIFIED="1613734310341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

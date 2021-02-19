@@ -75,7 +75,6 @@ class Grid(object):
         for row in reversed(range(len(self.grid) - 1)):
             if "0" not in self.grid[row]:
                 self.line_full = True
-                print(f"line {row} is full")
                 self.full_line_list.append(row)
 
                 for number in range(len(self.grid[row]) - 1):
@@ -96,5 +95,6 @@ class Grid(object):
                 self.grid[0][i] = "0"
             self.grid[0][-1] = "n"
             for i in range(len(self.grid[-1]) - 1):
-                self.grid[-1][i] = "n"
-            self.grid[-1][-1] = "0"
+                self.grid[-1][i] = "0"
+            self.grid[-1][-1] = "n"
+
