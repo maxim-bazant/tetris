@@ -7,6 +7,8 @@ from Grid import Grid
 from Square import Square
 from Shapes import *
 
+print(platform.uname()[0])
+
 
 class Game(object):
     def __init__(self):
