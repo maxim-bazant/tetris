@@ -75,7 +75,6 @@ class Grid(object):
         for row in reversed(range(len(self.grid) - 1)):
             if "0" not in self.grid[row]:
                 self.line_full = True
-                print(f"line {row} is full")
                 self.full_line_list.append(row)
 
                 for number in range(len(self.grid[row]) - 1):
