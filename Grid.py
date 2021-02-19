@@ -32,6 +32,7 @@ class Grid(object):
         self.line_full = False
         self.latest_row_index = None
         self.last_row_index = None
+        self.full_line_list = []
 
     def return_squares(self):
         self.movable_square = []
@@ -69,24 +70,32 @@ class Grid(object):
                      ["n", "n", "n", "n", "n", "n", "n", "n", "n", "n", "0"]]
 
     def check_for_line(self):
-        for row in self.grid:
-            if "0" not in row:
+        self.full_line_list = []
+        self.line_full = False
+        for row in reversed(range(len(self.grid) - 1)):
+            if "0" not in self.grid[row]:
                 self.line_full = True
+                print(f"line {row} is full")
+                self.full_line_list.append(row)
 
-                if self.latest_row_index is None:
-                    self.latest_row_index = self.grid.index(row)
-                self.last_row_index = self.grid.index(row)
-                print(self.last_row_index)
-                print(f"line {self.grid.index(row)} is full")
-                for number in range(len(row) - 1):
-                    self.grid[self.grid.index(row)][number] = "0"
-
-                self.shift_down(self.latest_row_index)
+                for number in range(len(self.grid[row]) - 1):
+                    self.grid[row][number] = "0"
+                self.grid[row][-1] = "n"
 
         if self.line_full:
+            self.shift_down(self.full_line_list)
             return True
 
-    def shift_down(self, row_index):
-        for row in reversed(range(0, row_index)):
-            print(row)
+    def shift_down(self, line_list):
+        for i in reversed(range(len(line_list))):
+            for row in reversed(range(0, line_list[i])):
+                for char in range(len(self.grid[row]) - 1):
+                    self.grid[row + 1][char] = self.grid[row][char]
+
+            for i in range(len(self.grid[0]) - 1):
+                self.grid[0][i] = "0"
+            self.grid[0][-1] = "n"
+            for i in range(len(self.grid[-1]) - 1):
+                self.grid[-1][i] = "0"
+            self.grid[-1][-1] = "n"
 

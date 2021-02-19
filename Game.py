@@ -7,8 +7,6 @@ from Grid import Grid
 from Square import Square
 from Shapes import *
 
-print(platform.uname()[0])
-
 
 class Game(object):
     def __init__(self):
@@ -30,9 +28,15 @@ class Game(object):
         self.button_down = False
         self.moving_right = False
         self.moving_left = False
-        self.speed = 50
-        self.normal_speed = 50
-        self.quick_down_speed = 4
+        if platform.uname().system == "Linux":
+            self.speed = 20
+            self.normal_speed = 20
+            self.quick_down_speed = 2
+        else:
+            self.speed = 50
+            self.normal_speed = 50
+            self.quick_down_speed = 4
+
         self.current_shape_index = 0
         self.game_over_ = False
         self.line_full = False
@@ -94,9 +98,7 @@ class Game(object):
                     self.grid.grid[self.current_y_index][self.current_x_index] = char
                     self.current_x_index += 1
                 else:
-                    if self.current_y_index - self.shapes[self.current_shape_index].height >= 0:
-                        if self.grid.grid[self.current_y_index - self.shapes[self.current_shape_index].height][self.current_x_index] == "1":
-                            self.game_over()
+                    pass
 
                     self.current_x_index += 1
             self.current_y_index += 1
