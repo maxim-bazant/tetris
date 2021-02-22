@@ -92,10 +92,8 @@ class Game(object):
             self.line_full = True
 
     def rotate_shape(self, keys):
-        ok = True
+        ok = None
         shape = self.shapes[self.current_shape_index]
-        #  print(shape.width)
-        print(self.current_x_index)
 
         if keys[pygame.K_SPACE] and not self.space_down and shape != self.shapes[0] and shape != self.shapes[2]:
             self.space_down = True
@@ -111,10 +109,32 @@ class Game(object):
                 ok = True
 
             # around the shape check
-            pass
+            for i in range(len(self.movable_squares)):
+                current_x_index = self.movable_squares[0].x // 40 - 1
+                start_x_index = current_x_index
+                current_y_index = self.movable_squares[0].y // 40 - 1
+
+                self.rotate_count += 1
+
+                for row in shape.rotate(self.rotate_count):
+                    for char in row:
+                        if char != "0":
+                            if self.grid.grid[current_y_index][current_x_index] != "1":
+                                if ok:
+                                    ok = True
+                            else:
+                                ok = False
+
+                            current_x_index += 1
+                        else:
+                            current_x_index += 1
+                    current_y_index += 1
+                    current_x_index = start_x_index
+                self.rotate_count -= 1
 
             # deleting the previous shape (it has to be replaced with rotated version)
             if ok:
+                print("ok")
                 self.rotate_count += 1
                 for i in range(len(self.movable_squares)):
                     current_x_index = self.movable_squares[0].x // 40 - 1
