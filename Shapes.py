@@ -4,6 +4,7 @@ import pygame
 
 class DotShape(object):
     def __init__(self, color):
+        self.edge_shift = 0
         self.color = color
         self.width = 1
         self.height = 3
@@ -18,6 +19,7 @@ class DotShape(object):
 
 class TwoSquareShape(object):
     def __init__(self, color):
+        self.edge_shift = 1
         self.shift = 0
         self.color = color
         self.width = 1
@@ -43,6 +45,7 @@ class TwoSquareShape(object):
 
 class FourSquareShape(object):
     def __init__(self, color):
+        self.edge_shift = 0
         self.color = color
         self.width = 2
         self.height = 2
@@ -57,6 +60,7 @@ class FourSquareShape(object):
 
 class ZShape(object):
     def __init__(self, color):
+        self.edge_shift = 0
         self.shift = 0
         self.color = color
         self.width = 3
@@ -84,6 +88,7 @@ class ZShape(object):
 
 class WShape(object):
     def __init__(self, color):
+        self.edge_shift = 0
         self.shift = 0
         self.color = color
         self.width = 3
@@ -127,6 +132,7 @@ class WShape(object):
 
 class LShape(object):
     def __init__(self, color):
+        self.edge_shift = 0
         self.color = color
         self.width = 3
         self.height = 2
@@ -169,6 +175,7 @@ class LShape(object):
 
 class IShape(object):
     def __init__(self, color):
+        self.edge_shift = 1
         self.shift = 0
         self.color = color
         self.width = 4

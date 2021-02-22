@@ -103,7 +103,7 @@ class Game(object):
             # CONTROL IF THE SHAPE CAN ROTATE
 
             # edge
-            if self.current_x_index == 8 or self.current_x_index == 9:
+            if self.current_x_index == 8 + shape.edge_shift:
                 ok = False
             else:
                 ok = True
@@ -119,10 +119,13 @@ class Game(object):
                 for row in shape.rotate(self.rotate_count):
                     for char in row:
                         if char != "0":
-                            if self.grid.grid[current_y_index][current_x_index] != "1":
-                                if ok:
-                                    ok = True
-                            else:
+                            try:
+                                if self.grid.grid[current_y_index][current_x_index] != "1":
+                                    if ok:
+                                        ok = True
+                                else:
+                                    ok = False
+                            except IndexError:
                                 ok = False
 
                             current_x_index += 1
@@ -190,6 +193,7 @@ class Game(object):
                     self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
 
                 self.rotate_count = 0
+
                 # here - shape is down and new is being added. Time for full_line_check()
 
     def move(self, keys):
