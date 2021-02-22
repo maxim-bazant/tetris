@@ -98,6 +98,9 @@ class Game(object):
             self.space_down = True
             self.rotate_count += 1
 
+            # control if the shape can rotate
+            pass
+
             # deleting the previous shape (it has to be replaced with rotated version)
             for i in range(len(self.movable_squares)):
                 current_x_index = self.movable_squares[0].x // 40 - 1
@@ -105,7 +108,6 @@ class Game(object):
                 current_y_index = self.movable_squares[0].y // 40 - 1
                 self.grid.grid[self.movable_squares[i].y // 40 - 1][self.movable_squares[i].x // 40 - 1] = "0"
 
-                print(shape.width)
                 for row in shape.rotate(self.rotate_count):
                     for char in row:
                         if char != "0":
@@ -116,10 +118,12 @@ class Game(object):
                     current_y_index += 1
                     current_x_index = start_x_index
 
+        shape.rotate(self.rotate_count)  # sets the width to correct corresponding number
+
     def add_shape(self):
         self.check_for_full_line()
 
-        self.current_shape_index = random.randint(0, len(self.shapes) - 1)
+        self.current_shape_index = 4  # random.randint(0, len(self.shapes) - 1)
         self.speed = self.normal_speed
         self.falling_count = 0
         self.current_y_index = self.start_y_index
