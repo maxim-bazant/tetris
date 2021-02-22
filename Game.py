@@ -137,7 +137,6 @@ class Game(object):
 
             # deleting the previous shape (it has to be replaced with rotated version)
             if ok:
-                print("ok")
                 self.rotate_count += 1
                 for i in range(len(self.movable_squares)):
                     current_x_index = self.movable_squares[0].x // 40 - 1
