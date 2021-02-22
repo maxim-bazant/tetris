@@ -120,7 +120,7 @@ class Game(object):
                     for char in row:
                         if char != "0":
                             try:
-                                if self.grid.grid[current_y_index][current_x_index] != "1":
+                                if self.grid.grid[current_y_index][current_x_index] != "1" and self.grid.grid[current_y_index][current_x_index] != "n":
                                     if ok:
                                         ok = True
                                 else:
