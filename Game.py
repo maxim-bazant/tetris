@@ -92,38 +92,52 @@ class Game(object):
             self.line_full = True
 
     def rotate_shape(self, keys):
+        ok = True
         shape = self.shapes[self.current_shape_index]
+        #  print(shape.width)
+        print(self.current_x_index)
 
         if keys[pygame.K_SPACE] and not self.space_down and shape != self.shapes[0] and shape != self.shapes[2]:
             self.space_down = True
-            self.rotate_count += 1
 
-            # control if the shape can rotate
+            shape.rotate(self.rotate_count)  # sets the width to correct corresponding number
+
+            # CONTROL IF THE SHAPE CAN ROTATE
+
+            # edge
+            if self.current_x_index == 8 or self.current_x_index == 9:
+                ok = False
+            else:
+                ok = True
+
+            # around the shape check
             pass
 
             # deleting the previous shape (it has to be replaced with rotated version)
-            for i in range(len(self.movable_squares)):
-                current_x_index = self.movable_squares[0].x // 40 - 1
-                start_x_index = current_x_index
-                current_y_index = self.movable_squares[0].y // 40 - 1
-                self.grid.grid[self.movable_squares[i].y // 40 - 1][self.movable_squares[i].x // 40 - 1] = "0"
+            if ok:
+                self.rotate_count += 1
+                for i in range(len(self.movable_squares)):
+                    current_x_index = self.movable_squares[0].x // 40 - 1
+                    start_x_index = current_x_index
+                    current_y_index = self.movable_squares[0].y // 40 - 1
+                    self.grid.grid[self.movable_squares[i].y // 40 - 1][self.movable_squares[i].x // 40 - 1] = "0"
 
-                for row in shape.rotate(self.rotate_count):
-                    for char in row:
-                        if char != "0":
-                            self.grid.grid[current_y_index][current_x_index - shape.shift] = char
-                            current_x_index += 1
-                        else:
-                            current_x_index += 1
-                    current_y_index += 1
-                    current_x_index = start_x_index
+                    for row in shape.rotate(self.rotate_count):
+                        for char in row:
+                            if char != "0":
+                                self.grid.grid[current_y_index][current_x_index - shape.shift] = char
+                                current_x_index += 1
+                            else:
+                                current_x_index += 1
+                        current_y_index += 1
+                        current_x_index = start_x_index
 
         shape.rotate(self.rotate_count)  # sets the width to correct corresponding number
 
     def add_shape(self):
         self.check_for_full_line()
 
-        self.current_shape_index = 4  # random.randint(0, len(self.shapes) - 1)
+        self.current_shape_index = random.randint(0, len(self.shapes) - 1)
         self.speed = self.normal_speed
         self.falling_count = 0
         self.current_y_index = self.start_y_index
