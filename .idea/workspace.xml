@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b27abb6-4ead-43fd-b8ac-63d46bcaa29d" name="Default Changelist" comment="small check">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tetris.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tetris.iml" afterDir="false" />
+    <list default="true" id="5b27abb6-4ead-43fd-b8ac-63d46bcaa29d" name="Default Changelist" comment="another rotate bug done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game.py" afterDir="false" />
     </list>
@@ -33,7 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MIT" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
@@ -96,7 +94,7 @@
       <workItem from="1613075696443" duration="14435000" />
       <workItem from="1613853929489" duration="87000" />
       <workItem from="1613945273066" duration="609000" />
-      <workItem from="1614005188649" duration="13519000" />
+      <workItem from="1614005188649" duration="15975000" />
     </task>
     <task id="LOCAL-00001" summary="falling peaces">
       <created>1611847897281</created>
@@ -294,7 +292,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614031503819</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="another rotate bug done">
+      <created>1614084559812</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1614084559812</updated>
+    </task>
+    <task id="LOCAL-00030" summary="another rotate bug done">
+      <created>1614085260201</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1614085260201</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +333,8 @@
     <MESSAGE value="rotate check done! small improvements" />
     <MESSAGE value="small check" />
     <MESSAGE value="small bugs in rotate check done!" />
-    <option name="LAST_COMMIT_MESSAGE" value="small bugs in rotate check done!" />
+    <MESSAGE value="another rotate bug done" />
+    <option name="LAST_COMMIT_MESSAGE" value="another rotate bug done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="4576" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612717669621">
@@ -329,19 +342,19 @@
     </state>
     <state x="736" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1611145290487" />
     <state x="4576" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612717669621" />
-    <state x="525" y="282" key="CommitChangelistDialog2" timestamp="1614031503262">
+    <state x="525" y="282" key="CommitChangelistDialog2" timestamp="1614085259585">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="525" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614031503262" />
+    <state x="525" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614085259585" />
     <state x="4744" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718058902" />
     <state width="1306" height="466" key="DebuggerActiveHint" timestamp="1612717835130">
       <screen x="3840" y="0" width="2560" height="1400" />
     </state>
     <state width="1306" height="466" key="DebuggerActiveHint/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612717835130" />
-    <state x="4901" y="456" key="FileChooserDialogImpl" timestamp="1612717537904">
-      <screen x="3840" y="0" width="2560" height="1400" />
+    <state x="1061" y="456" key="FileChooserDialogImpl" timestamp="1614090442979">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1061" y="456" key="FileChooserDialogImpl/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1611829289913" />
+    <state x="1061" y="456" key="FileChooserDialogImpl/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614090442979" />
     <state x="4901" y="456" key="FileChooserDialogImpl/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612717537904" />
     <state x="1160" y="599" key="Github.ShareDialog" timestamp="1611774627492">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -351,34 +364,34 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1099" y="393" key="Github.UntrackedFilesDialog/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1611774636547" />
-    <state width="2517" height="1127" key="GridCell.Tab.0.bottom" timestamp="1614084196264">
+    <state width="2517" height="623" key="GridCell.Tab.0.bottom" timestamp="1614094048948">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="1127" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614084196264" />
+    <state width="2517" height="623" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614094048948" />
     <state width="2517" height="649" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="1127" key="GridCell.Tab.0.center" timestamp="1614084196264">
+    <state width="2517" height="623" key="GridCell.Tab.0.center" timestamp="1614094048948">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="1127" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614084196264" />
+    <state width="2517" height="623" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614094048948" />
     <state width="2517" height="649" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="1127" key="GridCell.Tab.0.left" timestamp="1614084196264">
+    <state width="2517" height="623" key="GridCell.Tab.0.left" timestamp="1614094048948">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="1127" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614084196264" />
+    <state width="2517" height="623" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614094048948" />
     <state width="2517" height="649" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="1127" key="GridCell.Tab.0.right" timestamp="1614084196264">
+    <state width="2517" height="623" key="GridCell.Tab.0.right" timestamp="1614094048948">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="1127" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614084196264" />
+    <state width="2517" height="623" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614094048948" />
     <state width="2517" height="649" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
     <state x="4621" y="345" key="SettingsEditor" timestamp="1612717743062">
       <screen x="3840" y="0" width="2560" height="1400" />
     </state>
     <state x="4621" y="345" key="SettingsEditor/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612717743062" />
-    <state x="873" y="434" key="Vcs.Push.Dialog.v2" timestamp="1614031507688">
+    <state x="873" y="434" key="Vcs.Push.Dialog.v2" timestamp="1614085262022">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="873" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614031507688" />
+    <state x="873" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614085262022" />
     <state x="4713" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718062434" />
     <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613853941617">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -395,6 +408,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tetris$.coverage" NAME=" Coverage Results" MODIFIED="1612728468301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/tetris$Game.coverage" NAME="Game Coverage Results" MODIFIED="1614084495932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tetris$Game.coverage" NAME="Game Coverage Results" MODIFIED="1614094060734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

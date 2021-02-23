@@ -126,6 +126,13 @@ class Game(object):
                                 else:
                                     ok = False
 
+                                if self.current_shape_index != 4 and self.current_shape_index != 5:
+                                    if self.grid.grid[current_y_index][current_x_index] != "n":
+                                        if ok:
+                                            ok = True
+                                    else:
+                                        ok = False
+
                                 if self.grid.grid[current_y_index][current_x_index] != "1":
                                     if ok:
                                         ok = True
@@ -165,7 +172,7 @@ class Game(object):
     def add_shape(self):
         self.check_for_full_line()
 
-        self.current_shape_index = random.randint(0, len(self.shapes) - 1)
+        self.current_shape_index = 5  # random.randint(0, len(self.shapes) - 1)
         self.speed = self.normal_speed
         self.falling_count = 0
         self.current_y_index = self.start_y_index
