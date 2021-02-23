@@ -171,6 +171,7 @@ class Game(object):
 
     def add_shape(self):
         self.check_for_full_line()
+        self.check_if_game_over()
 
         self.current_shape_index = random.randint(0, len(self.shapes) - 1)
         self.speed = self.normal_speed
@@ -267,6 +268,9 @@ class Game(object):
 
         if keys[pygame.K_DOWN]:
             self.speed = self.quick_down_speed
+
+    def check_if_game_over(self):
+        pass
 
     def game_over(self):
         print("game over")
