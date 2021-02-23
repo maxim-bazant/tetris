@@ -95,7 +95,6 @@ class Game(object):
         ok = None
         shape = self.shapes[self.current_shape_index]
 
-        print(self.current_x_index)
         if keys[pygame.K_SPACE] and not self.space_down and shape != self.shapes[0] and shape != self.shapes[2]:
             self.space_down = True
 
@@ -106,7 +105,6 @@ class Game(object):
             # edge
             if self.current_x_index == 8 + shape.edge_shift:
                 ok = False
-                print("edge not ok")
             else:
                 ok = True
 
@@ -122,23 +120,19 @@ class Game(object):
                     for char in row:
                         if char != "0":
                             try:
-                                print(current_y_index != 20)
                                 if current_y_index != 20:
                                     if ok:
                                         ok = True
                                 else:
                                     ok = False
-                                    print("down not ok")
 
                                 if self.grid.grid[current_y_index][current_x_index] != "1":
                                     if ok:
                                         ok = True
                                 else:
                                     ok = False
-                                    print("space full, not ok")
                             except IndexError:
                                 ok = False
-                                print("index error not ok")
 
                             current_x_index += 1
                         else:
