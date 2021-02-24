@@ -60,6 +60,8 @@ class Game(object):
     def run(self):
         self.blit()
 
+        self.check_if_game_over()
+
         if self.line_full:  # if line full it changes it into "0" instead of "1"
             self.squares = []
 
@@ -171,7 +173,6 @@ class Game(object):
 
     def add_shape(self):
         self.check_for_full_line()
-        self.check_if_game_over()
 
         self.current_shape_index = random.randint(0, len(self.shapes) - 1)
         self.speed = self.normal_speed
