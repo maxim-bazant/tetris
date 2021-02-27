@@ -37,6 +37,7 @@ class Game(object):
             self.normal_speed = 50
             self.quick_down_speed = 4
 
+        self.next_shape_index = [random.randint(0, len(self.shapes) - 1), random.randint(0, len(self.shapes) - 1)]
         self.current_shape_index = 0
         self.game_over_ = False
         self.line_full = False
@@ -175,7 +176,20 @@ class Game(object):
     def add_shape(self):
         self.check_for_full_line()
 
-        self.current_shape_index = random.randint(0, len(self.shapes) - 1)
+        if len(self.next_shape_index) == 1:
+            next_shape_index = random.randint(0, len(self.shapes) - 1)
+
+            while next_shape_index in self.next_shape_index:
+                print("yep")
+                next_shape_index = random.randint(0, len(self.shapes) - 1)
+
+            self.next_shape_index.append(random.randint(0, len(self.shapes) - 1))
+
+        print(self.next_shape_index)
+
+        self.current_shape_index = self.next_shape_index[0]
+        self.next_shape_index.pop(0)
+
         self.speed = self.normal_speed
         self.falling_count = 0
         self.current_y_index = self.start_y_index
