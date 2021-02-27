@@ -96,7 +96,7 @@
       <workItem from="1613945273066" duration="609000" />
       <workItem from="1614005188649" duration="22084000" />
       <workItem from="1614175881006" duration="10000" />
-      <workItem from="1614202568477" duration="2001000" />
+      <workItem from="1614202568477" duration="14424000" />
     </task>
     <task id="LOCAL-00001" summary="falling peaces">
       <created>1611847897281</created>
@@ -329,7 +329,42 @@
       <option name="project" value="LOCAL" />
       <updated>1614117278674</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="small changes">
+      <created>1614207572770</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1614207572770</updated>
+    </task>
+    <task id="LOCAL-00035" summary="game over detection done">
+      <created>1614434297829</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1614434297829</updated>
+    </task>
+    <task id="LOCAL-00036" summary="next shape mechanism done">
+      <created>1614435212312</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1614435212312</updated>
+    </task>
+    <task id="LOCAL-00037" summary="next shape displaying done">
+      <created>1614438106901</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1614438106901</updated>
+    </task>
+    <task id="LOCAL-00038" summary="small changes">
+      <created>1614442135370</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1614442135370</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,9 +391,12 @@
     <MESSAGE value="small check" />
     <MESSAGE value="small bugs in rotate check done!" />
     <MESSAGE value="another rotate bug done" />
-    <MESSAGE value="small changes" />
     <MESSAGE value="starting check if game over" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting check if game over" />
+    <MESSAGE value="game over detection done" />
+    <MESSAGE value="next shape mechanism done" />
+    <MESSAGE value="next shape displaying done" />
+    <MESSAGE value="small changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="small changes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="4576" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612717669621">
@@ -366,10 +404,10 @@
     </state>
     <state x="736" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1611145290487" />
     <state x="4576" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612717669621" />
-    <state x="525" y="282" key="CommitChangelistDialog2" timestamp="1614117277378">
+    <state x="525" y="282" key="CommitChangelistDialog2" timestamp="1614442133772">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="525" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614117277378" />
+    <state x="525" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614442133772" />
     <state x="4744" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718058902" />
     <state width="1306" height="466" key="DebuggerActiveHint" timestamp="1612717835130">
       <screen x="3840" y="0" width="2560" height="1400" />
@@ -388,34 +426,34 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1099" y="393" key="Github.UntrackedFilesDialog/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1611774636547" />
-    <state width="2517" height="311" key="GridCell.Tab.0.bottom" timestamp="1614175591324">
+    <state width="2517" height="458" key="GridCell.Tab.0.bottom" timestamp="1614443020491">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="311" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614175591324" />
+    <state width="2517" height="458" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614443020491" />
     <state width="2517" height="649" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="311" key="GridCell.Tab.0.center" timestamp="1614175591324">
+    <state width="2517" height="458" key="GridCell.Tab.0.center" timestamp="1614443020490">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="311" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614175591324" />
+    <state width="2517" height="458" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614443020490" />
     <state width="2517" height="649" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="311" key="GridCell.Tab.0.left" timestamp="1614175591323">
+    <state width="2517" height="458" key="GridCell.Tab.0.left" timestamp="1614443020490">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="311" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614175591323" />
+    <state width="2517" height="458" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614443020490" />
     <state width="2517" height="649" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="311" key="GridCell.Tab.0.right" timestamp="1614175591324">
+    <state width="2517" height="458" key="GridCell.Tab.0.right" timestamp="1614443020490">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="311" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614175591324" />
+    <state width="2517" height="458" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614443020490" />
     <state width="2517" height="649" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
     <state x="4621" y="345" key="SettingsEditor" timestamp="1612717743062">
       <screen x="3840" y="0" width="2560" height="1400" />
     </state>
     <state x="4621" y="345" key="SettingsEditor/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612717743062" />
-    <state x="873" y="434" key="Vcs.Push.Dialog.v2" timestamp="1614117283243">
+    <state x="873" y="434" key="Vcs.Push.Dialog.v2" timestamp="1614442136846">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="873" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614117283243" />
+    <state x="873" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614442136846" />
     <state x="4713" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718062434" />
     <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613853941617">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -432,6 +470,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tetris$.coverage" NAME=" Coverage Results" MODIFIED="1612728468301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/tetris$Game.coverage" NAME="Game Coverage Results" MODIFIED="1614115383097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tetris$Game.coverage" NAME="Game Coverage Results" MODIFIED="1614443080034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

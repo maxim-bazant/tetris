@@ -25,7 +25,7 @@ class Game(object):
         self.start_next_shape_y = 0
         self.falling_count = 0
         self.grid = Grid()
-        self.colors = ["a", "b", "c", "d", "e", "f"]
+        self.colors = ["a", "b", "c", "d"]
         self.shapes = [DotShape(self.colors[0]), TwoSquareShape(self.colors[0]), FourSquareShape(self.colors[0]),
                        ZShape(self.colors[0]), WShape(self.colors[0]), LShape(self.colors[0]), IShape(self.colors[0])]
         self.button_down = False
