@@ -32,7 +32,7 @@ class TwoSquareShape(object):
     def rotate(self, rotate_count):
         if rotate_count % 2 == 1:
             self.width = 2
-            self.height = 1
+            self.height = 3
             return [[self.color, self.color, "0", "0"],
                     ["0", "0", "0", "0"],
                     ["0", "0", "0", "0"],
@@ -169,7 +169,7 @@ class LShape(object):
         elif rotate_count % 4 == 0:
             self.shift = 1
             self.width = 3
-            self.height = 1
+            self.height = 2
             return self.grid
 
 

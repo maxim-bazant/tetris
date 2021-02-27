@@ -60,8 +60,6 @@ class Game(object):
     def run(self):
         self.blit()
 
-        self.check_if_game_over()
-
         if self.line_full:  # if line full it changes it into "0" instead of "1"
             self.squares = []
 
@@ -77,7 +75,10 @@ class Game(object):
         ok_down = True
 
         if not self.movable_squares:
-            self.add_shape()
+            if not self.check_if_game_over():
+                self.add_shape()
+            else:
+                self.game_over()
         else:
             if not self.speed == self.quick_down_speed:
                 self.rotate_shape(keys)
@@ -271,7 +272,16 @@ class Game(object):
             self.speed = self.quick_down_speed
 
     def check_if_game_over(self):
-        pass
+        game_over = None
+        for height in range(4 - self.shapes[self.current_shape_index].height):
+            for width in range(self.shapes[self.current_shape_index].width):
+                if self.grid.grid[self.start_y_index + height][self.start_x_index + width] == "1":
+                    game_over = True
+                else:
+                    if not game_over:
+                        game_over = False
+
+        return game_over
 
     def game_over(self):
         print("game over")
