@@ -50,16 +50,22 @@ class Grid(object):
         return self.next_shape_squares
 
     def return_squares(self):
-        self.movable_square = []
         self.square_doubles = []
         for horizontal_number in range(len(self.grid) - 1):
             for vertical_number in range(len(self.grid[horizontal_number]) - 1):
                 if self.grid[horizontal_number][vertical_number] == "1":
                     self.square_doubles.append([vertical_number, horizontal_number])
+
+        return self.square_doubles  # return 1_list, 2_list, 3_list ....
+
+    def return_movable_squares(self):
+        self.movable_square = []
+        for horizontal_number in range(len(self.grid) - 1):
+            for vertical_number in range(len(self.grid[horizontal_number]) - 1):
                 if self.grid[horizontal_number][vertical_number] == "a":
                     self.movable_square.append([vertical_number, horizontal_number])
 
-        return [self.square_doubles, self.movable_square]
+        return self.movable_square  # return a_list, b_list, c_list ....
 
     def reset_next_shape_grid(self):
         self.next_shape_grid = [["0", "0", "0", "0"],
