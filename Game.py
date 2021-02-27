@@ -195,12 +195,6 @@ class Game(object):
         self.check_for_full_line()
 
         if len(self.next_shape_index) == 1:
-            next_shape_index = random.randint(0, len(self.shapes) - 1)
-            print(self.next_shape_index[0])
-            print(next_shape_index)
-            if next_shape_index == self.next_shape_index[0]:
-                next_shape_index = random.randint(0, len(self.shapes) - 1)
-
             self.next_shape_index.append(random.randint(0, len(self.shapes) - 1))
 
         self.next_shape_squares = []
