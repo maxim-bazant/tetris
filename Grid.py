@@ -27,12 +27,27 @@ class Grid(object):
                      ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],
                      ["n", "n", "n", "n", "n", "n", "n", "n", "n", "n", "0"]]
 
+        self.next_shape_grid = [["0", "0", "0", "0"],
+                                ["0", "0", "0", "0"],
+                                ["0", "0", "0", "0"],
+                                ["0", "0", "0", "0"]]
+
         self.square_doubles = []
         self.movable_square = []
+        self.next_shape_squares = []
         self.line_full = False
         self.latest_row_index = None
         self.last_row_index = None
         self.full_line_list = []
+
+    def return_next_shape_squares(self):
+        self.next_shape_squares = []
+        for horizontal_number in range(len(self.next_shape_grid) - 1):
+            for vertical_number in range(len(self.next_shape_grid[horizontal_number])):
+                if self.next_shape_grid[horizontal_number][vertical_number] == "a":
+                    self.next_shape_squares.append([vertical_number, horizontal_number])
+
+        return self.next_shape_squares
 
     def return_squares(self):
         self.movable_square = []
@@ -45,6 +60,12 @@ class Grid(object):
                     self.movable_square.append([vertical_number, horizontal_number])
 
         return [self.square_doubles, self.movable_square]
+
+    def reset_next_shape_grid(self):
+        self.next_shape_grid = [["0", "0", "0", "0"],
+                                ["0", "0", "0", "0"],
+                                ["0", "0", "0", "0"],
+                                ["0", "0", "0", "0"]]
 
     def reset_grid(self):
         self.grid = [["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "n"],

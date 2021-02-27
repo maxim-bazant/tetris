@@ -16,10 +16,13 @@ class Game(object):
         self.win = win
         self.squares = []  # squares that can nt move anymore
         self.movable_squares = []
+        self.next_shape_squares = []
         self.current_x_index = 3
         self.current_y_index = 0
         self.start_x_index = 3
         self.start_y_index = 0
+        self.start_next_shape_x = 0
+        self.start_next_shape_y = 0
         self.falling_count = 0
         self.grid = Grid()
         self.colors = ["a", "b", "c", "d", "e", "f"]
@@ -173,19 +176,38 @@ class Game(object):
 
         shape.rotate(self.rotate_count)  # sets the width to correct corresponding number
 
+    def update_next_shape_grid(self):
+        self.grid.reset_next_shape_grid()
+
+        current_y_index = self.start_next_shape_y
+        for row in self.shapes[self.next_shape_index[-1]].grid:
+            current_x_index = self.start_next_shape_x
+            for char in row:
+                if char == "a":
+                    self.grid.next_shape_grid[current_y_index][current_x_index] = char
+                    current_x_index += 1
+                else:
+                    current_x_index += 1
+            current_y_index += 1
+            current_x_index = self.start_next_shape_x
+
     def add_shape(self):
         self.check_for_full_line()
 
         if len(self.next_shape_index) == 1:
             next_shape_index = random.randint(0, len(self.shapes) - 1)
-
-            while next_shape_index in self.next_shape_index:
-                print("yep")
+            print(self.next_shape_index[0])
+            print(next_shape_index)
+            if next_shape_index == self.next_shape_index[0]:
                 next_shape_index = random.randint(0, len(self.shapes) - 1)
 
             self.next_shape_index.append(random.randint(0, len(self.shapes) - 1))
 
-        print(self.next_shape_index)
+        self.next_shape_squares = []
+        self.update_next_shape_grid()
+
+        for double in self.grid.return_next_shape_squares():
+            self.next_shape_squares.append(Square((double[0] + 15) * 40, (double[1] + 5) * 40))
 
         self.current_shape_index = self.next_shape_index[0]
         self.next_shape_index.pop(0)
@@ -311,6 +333,8 @@ class Game(object):
         for movable_square in self.movable_squares:
             movable_square.blit_square()
         for square in self.squares:
+            square.blit_square()
+        for square in self.next_shape_squares:
             square.blit_square()
 
 

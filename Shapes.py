@@ -75,10 +75,10 @@ class ZShape(object):
             self.width = 2
             self.height = 1
             self.shift = 1
-            return [[self.color, "0", "0", "0", "0"],
-                    [self.color, self.color, "0", "0", "0"],
-                    ["0", self.color, "0", "0", "0"],
-                    ["0", "0", "0", "0", "0"]]
+            return [[self.color, "0", "0", "0"],
+                    [self.color, self.color, "0", "0"],
+                    ["0", self.color, "0", "0"],
+                    ["0", "0", "0", "0"]]
         if rotate_count % 2 == 0:
             self.shift = 0
             self.width = 3
