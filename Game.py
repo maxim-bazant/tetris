@@ -26,6 +26,7 @@ class Game(object):
         self.falling_count = 0
         self.grid = Grid()
         self.colors = ["a", "b", "c", "d"]
+        self.numbers = ["1", "2", "3", "4"]
         self.shapes = [DotShape(self.colors[0]), TwoSquareShape(self.colors[0]), FourSquareShape(self.colors[0]),
                        ZShape(self.colors[0]), WShape(self.colors[0]), LShape(self.colors[0]), IShape(self.colors[0])]
         self.button_down = False
@@ -48,6 +49,15 @@ class Game(object):
         self.rotate_count = 0
         self.space_down = False
         self.rotating = False
+
+        self.num_to_char = {"1": "a",
+                            "2": "b",
+                            "3": "c",
+                            "4": "d"}
+        self.char_to_num = {"a": "1",
+                            "b": "2",
+                            "c": "3",
+                            "d": "4"}
 
     def events(self):
         for event in pygame.event.get():
@@ -140,7 +150,7 @@ class Game(object):
                                     else:
                                         ok = False
 
-                                if self.grid.grid[current_y_index][current_x_index] != "1":
+                                if self.grid.grid[current_y_index][current_x_index] not in self.numbers:
                                     if ok:
                                         ok = True
                                 else:
@@ -183,7 +193,7 @@ class Game(object):
         for row in self.shapes[self.next_shape_index[-1]].grid:
             current_x_index = self.start_next_shape_x
             for char in row:
-                if char == "a":
+                if char == self.shapes[self.next_shape_index[-1]].color:
                     self.grid.next_shape_grid[current_y_index][current_x_index] = char
                     current_x_index += 1
                 else:
@@ -212,7 +222,7 @@ class Game(object):
         for row in self.shapes[self.current_shape_index].grid:
             self.current_x_index = self.start_x_index
             for char in row:
-                if char == "a":
+                if char == self.shapes[self.current_shape_index].color:
                     self.grid.grid[self.current_y_index][self.current_x_index] = char
                     self.current_x_index += 1
                 else:
@@ -223,7 +233,7 @@ class Game(object):
     def fall_down(self, ok):
         movable_square_list = self.grid.return_movable_squares()
         for double_ in reversed(movable_square_list):
-            if self.grid.grid[double_[1] + 1][double_[0]] != "1" and double_[1] != 19:
+            if self.grid.grid[double_[1] + 1][double_[0]] != self.char_to_num[self.shapes[self.current_shape_index].color] and double_[1] != 19:
                 pass
             else:
                 ok = False
@@ -231,10 +241,10 @@ class Game(object):
         for double_ in reversed(movable_square_list):
             if ok:
                 self.grid.grid[double_[1]][double_[0]] = "0"
-                self.grid.grid[double_[1] + 1][double_[0]] = "a"
+                self.grid.grid[double_[1] + 1][double_[0]] = self.shapes[self.current_shape_index].color
             else:
                 for double in movable_square_list:
-                    self.grid.grid[double[1]][double[0]] = "1"
+                    self.grid.grid[double[1]][double[0]] = self.char_to_num[self.shapes[self.current_shape_index].color]
                     self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
 
                 self.rotate_count = 0
@@ -259,12 +269,12 @@ class Game(object):
 
         movable_squares = self.grid.return_movable_squares()
         for double_ in reversed(movable_squares):
-            if self.grid.grid[double_[1]][double_[0] + 1] != "1":
+            if self.grid.grid[double_[1]][double_[0] + 1] not in self.numbers:
                 pass
             else:
                 ok_right = False
         for double_ in reversed(movable_squares):
-            if self.grid.grid[double_[1]][double_[0] - 1] != "1":
+            if self.grid.grid[double_[1]][double_[0] - 1] not in self.numbers:
                 pass
             else:
                 ok_left = False
@@ -274,10 +284,10 @@ class Game(object):
             for double_ in reversed(self.grid.return_movable_squares()):
                 if ok_right:
                     self.grid.grid[double_[1]][double_[0]] = "0"
-                    self.grid.grid[double_[1]][double_[0] + 1] = "a"
+                    self.grid.grid[double_[1]][double_[0] + 1] = self.shapes[self.current_shape_index].color
                 else:
                     for double in self.grid.return_movable_squares():
-                        self.grid.grid[double[1]][double[0]] = "1"
+                        self.grid.grid[double[1]][double[0]] = self.char_to_num[self.shapes[self.current_shape_index].color]
             if ok_right:
                 self.current_x_index += 1
         else:
@@ -289,10 +299,10 @@ class Game(object):
             for double_ in movable_squares:
                 if ok_left:
                     self.grid.grid[double_[1]][double_[0]] = "0"
-                    self.grid.grid[double_[1]][double_[0] - 1] = "a"
+                    self.grid.grid[double_[1]][double_[0] - 1] = self.shapes[self.current_shape_index].color
                 else:
                     for double in movable_squares:
-                        self.grid.grid[double[1]][double[0]] = "1"
+                        self.grid.grid[double[1]][double[0]] = self.char_to_num[self.shapes[self.current_shape_index].color]
             if ok_left:
                 self.current_x_index -= 1
         else:
@@ -305,7 +315,7 @@ class Game(object):
         game_over = None
         for height in range(4 - self.shapes[self.current_shape_index].height):
             for width in range(self.shapes[self.current_shape_index].width):
-                if self.grid.grid[self.start_y_index + height][self.start_x_index + width] == "1":
+                if self.grid.grid[self.start_y_index + height][self.start_x_index + width] in self.numbers:
                     game_over = True
                 else:
                     if not game_over:
