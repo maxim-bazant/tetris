@@ -32,37 +32,49 @@ class Grid(object):
                                 ["0", "0", "0", "0"],
                                 ["0", "0", "0", "0"]]
 
-        self.square_doubles = []
         self.movable_square = []
         self.next_shape_squares = []
         self.line_full = False
         self.latest_row_index = None
         self.last_row_index = None
         self.full_line_list = []
+        self.list_1 = []
+        self.list_2 = []
+        self.list_3 = []
+        self.list_4 = []
 
-    def return_next_shape_squares(self):
+    def return_next_shape_squares(self, color):
         self.next_shape_squares = []
         for horizontal_number in range(len(self.next_shape_grid) - 1):
             for vertical_number in range(len(self.next_shape_grid[horizontal_number])):
-                if self.next_shape_grid[horizontal_number][vertical_number] == "a":
+                if self.next_shape_grid[horizontal_number][vertical_number] == color:
                     self.next_shape_squares.append([vertical_number, horizontal_number])
 
         return self.next_shape_squares
 
     def return_squares(self):
-        self.square_doubles = []
+        self.list_1 = []
+        self.list_2 = []
+        self.list_3 = []
+        self.list_4 = []
         for horizontal_number in range(len(self.grid) - 1):
             for vertical_number in range(len(self.grid[horizontal_number]) - 1):
                 if self.grid[horizontal_number][vertical_number] == "1":
-                    self.square_doubles.append([vertical_number, horizontal_number])
+                    self.list_1.append([vertical_number, horizontal_number])
+                elif self.grid[horizontal_number][vertical_number] == "2":
+                    self.list_2.append([vertical_number, horizontal_number])
+                elif self.grid[horizontal_number][vertical_number] == "3":
+                    self.list_3.append([vertical_number, horizontal_number])
+                elif self.grid[horizontal_number][vertical_number] == "4":
+                    self.list_4.append([vertical_number, horizontal_number])
 
-        return self.square_doubles  # return 1_list, 2_list, 3_list ....
+        return [self.list_1, self.list_2, self.list_3, self.list_4]
 
-    def return_movable_squares(self):
+    def return_movable_squares(self, color):
         self.movable_square = []
         for horizontal_number in range(len(self.grid) - 1):
             for vertical_number in range(len(self.grid[horizontal_number]) - 1):
-                if self.grid[horizontal_number][vertical_number] == "a":
+                if self.grid[horizontal_number][vertical_number] == color:
                     self.movable_square.append([vertical_number, horizontal_number])
 
         return self.movable_square  # return a_list, b_list, c_list ....

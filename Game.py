@@ -14,7 +14,10 @@ class Game(object):
         self.clock = pygame.time.Clock()
         self.edge = pygame.image.load("images/bg.png").convert_alpha()
         self.win = win
-        self.squares = []  # squares that can nt move anymore
+        self.squares_1 = []
+        self.squares_2 = []
+        self.squares_3 = []
+        self.squares_4 = []
         self.movable_squares = []
         self.next_shape_squares = []
         self.current_x_index = 3
@@ -27,8 +30,8 @@ class Game(object):
         self.grid = Grid()
         self.colors = ["a", "b", "c", "d"]
         self.numbers = ["1", "2", "3", "4"]
-        self.shapes = [DotShape(self.colors[0]), TwoSquareShape(self.colors[0]), FourSquareShape(self.colors[0]),
-                       ZShape(self.colors[0]), WShape(self.colors[0]), LShape(self.colors[0]), IShape(self.colors[0])]
+        self.shapes = [DotShape(self.colors[0]), TwoSquareShape(self.colors[1]), FourSquareShape(self.colors[2]),
+                       ZShape(self.colors[3]), WShape(self.colors[0]), LShape(self.colors[1]), IShape(self.colors[2])]
         self.button_down = False
         self.moving_right = False
         self.moving_left = False
@@ -75,14 +78,27 @@ class Game(object):
         self.blit()
 
         if self.line_full:  # if line full it changes it into "0" instead of "1"
-            self.squares = []
+            self.squares_1 = []
+            self.squares_2 = []
+            self.squares_3 = []
+            self.squares_4 = []
 
-            for double in self.grid.return_squares():
-                self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+            for double in self.grid.return_squares()[0]:
+                self.squares_1.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+
+            for double in self.grid.return_squares()[1]:
+                self.squares_2.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+
+            for double in self.grid.return_squares()[2]:
+                self.squares_3.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+
+            for double in self.grid.return_squares()[3]:
+                self.squares_4.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+
             self.line_full = False
 
         self.movable_squares = []
-        for double in self.grid.return_movable_squares():
+        for double in self.grid.return_movable_squares(self.shapes[self.current_shape_index].color):
             self.movable_squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
 
         keys = pygame.key.get_pressed()
@@ -210,7 +226,7 @@ class Game(object):
         self.next_shape_squares = []
         self.update_next_shape_grid()
 
-        for double in self.grid.return_next_shape_squares():
+        for double in self.grid.return_next_shape_squares(self.shapes[self.next_shape_index[-1]].color):
             self.next_shape_squares.append(Square((double[0] + 15) * 40, (double[1] + 5) * 40))
 
         self.current_shape_index = self.next_shape_index[0]
@@ -231,9 +247,9 @@ class Game(object):
             self.current_x_index = self.start_x_index
 
     def fall_down(self, ok):
-        movable_square_list = self.grid.return_movable_squares()
+        movable_square_list = self.grid.return_movable_squares(self.shapes[self.current_shape_index].color)
         for double_ in reversed(movable_square_list):
-            if self.grid.grid[double_[1] + 1][double_[0]] != self.char_to_num[self.shapes[self.current_shape_index].color] and double_[1] != 19:
+            if self.grid.grid[double_[1] + 1][double_[0]] not in self.numbers and double_[1] != 19:
                 pass
             else:
                 ok = False
@@ -245,7 +261,14 @@ class Game(object):
             else:
                 for double in movable_square_list:
                     self.grid.grid[double[1]][double[0]] = self.char_to_num[self.shapes[self.current_shape_index].color]
-                    self.squares.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+                    if self.char_to_num[self.shapes[self.current_shape_index].color] == "1":
+                        self.squares_1.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+                    if self.char_to_num[self.shapes[self.current_shape_index].color] == "2":
+                        self.squares_2.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+                    if self.char_to_num[self.shapes[self.current_shape_index].color] == "3":
+                        self.squares_3.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
+                    if self.char_to_num[self.shapes[self.current_shape_index].color] == "4":
+                        self.squares_4.append(Square((double[0] + 1) * 40, (double[1] + 1) * 40))
 
                 self.rotate_count = 0
 
@@ -267,7 +290,7 @@ class Game(object):
         else:
             ok_left = False
 
-        movable_squares = self.grid.return_movable_squares()
+        movable_squares = self.grid.return_movable_squares(self.shapes[self.current_shape_index].color)
         for double_ in reversed(movable_squares):
             if self.grid.grid[double_[1]][double_[0] + 1] not in self.numbers:
                 pass
@@ -281,12 +304,12 @@ class Game(object):
         # end of control
         if keys[pygame.K_RIGHT] and not self.button_down and not self.moving_left and ok_right:
             self.moving_right = True
-            for double_ in reversed(self.grid.return_movable_squares()):
+            for double_ in reversed(self.grid.return_movable_squares(self.shapes[self.current_shape_index].color)):
                 if ok_right:
                     self.grid.grid[double_[1]][double_[0]] = "0"
                     self.grid.grid[double_[1]][double_[0] + 1] = self.shapes[self.current_shape_index].color
                 else:
-                    for double in self.grid.return_movable_squares():
+                    for double in self.grid.return_movable_squares(self.shapes[self.current_shape_index].color):
                         self.grid.grid[double[1]][double[0]] = self.char_to_num[self.shapes[self.current_shape_index].color]
             if ok_right:
                 self.current_x_index += 1
@@ -295,7 +318,7 @@ class Game(object):
 
         if keys[pygame.K_LEFT] and not self.button_down and not self.moving_right and ok_left:
             self.moving_left = True
-            movable_squares = self.grid.return_movable_squares()
+            movable_squares = self.grid.return_movable_squares(self.shapes[self.current_shape_index].color)
             for double_ in movable_squares:
                 if ok_left:
                     self.grid.grid[double_[1]][double_[0]] = "0"
@@ -325,7 +348,10 @@ class Game(object):
 
     def game_over(self):
         print("game over")
-        self.squares = []
+        self.squares_1 = []
+        self.squares_2 = []
+        self.squares_3 = []
+        self.squares_4 = []
         self.movable_squares = []
         time.sleep(2)
         self.game_over_ = False
@@ -335,11 +361,17 @@ class Game(object):
         win.fill(bg_color)
         win.blit(self.edge, (0, 0))
         for movable_square in self.movable_squares:
-            movable_square.blit_square()
-        for square in self.squares:
-            square.blit_square()
+            movable_square.blit_square(int(self.char_to_num[self.shapes[self.current_shape_index].color]) - 1)
+        for square in self.squares_1:
+            square.blit_square(0)
+        for square in self.squares_2:
+            square.blit_square(1)
+        for square in self.squares_3:
+            square.blit_square(2)
+        for square in self.squares_4:
+            square.blit_square(3)
         for square in self.next_shape_squares:
-            square.blit_square()
+            square.blit_square(int(self.char_to_num[self.shapes[self.next_shape_index[-1]].color]) - 1)
 
 
 g = Game()
