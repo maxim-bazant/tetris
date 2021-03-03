@@ -33,6 +33,7 @@ class Game(object):
         self.shapes = [DotShape(self.colors[0]), TwoSquareShape(self.colors[1]), FourSquareShape(self.colors[2]),
                        ZShape(self.colors[3]), WShape(self.colors[0]), LShape(self.colors[1]), IShape(self.colors[2])]
         self.button_down = False
+        self.button_count = 0
         self.moving_right = False
         self.moving_left = False
         if platform.uname().system == "Linux":
@@ -110,11 +111,10 @@ class Game(object):
             else:
                 self.game_over()
         else:
-            if not self.speed == self.quick_down_speed:
-                self.rotate_shape(keys)
-                ok_right = True
-                ok_left = True
-                self.move(keys)
+            self.rotate_shape(keys)
+            ok_right = True
+            ok_left = True
+            self.move(keys)
 
         self.falling_count += 1
         if self.falling_count % self.speed == 0:  # falling count is for the pieces to slowly go down
@@ -279,6 +279,11 @@ class Game(object):
         if self.moving_right or self.moving_left:
             self.button_down = True
 
+        if self.button_down:
+            self.button_count += 1
+        else:
+            self.button_count = 0
+
         # movement handling
         # control
         if self.current_x_index < 10 - self.shapes[self.current_shape_index].width:
@@ -302,32 +307,34 @@ class Game(object):
             else:
                 ok_left = False
         # end of control
-        if keys[pygame.K_RIGHT] and not self.button_down and not self.moving_left and ok_right:
-            self.moving_right = True
-            for double_ in reversed(self.grid.return_movable_squares(self.shapes[self.current_shape_index].color)):
+        if keys[pygame.K_RIGHT] and (not self.button_down or self.button_count % 13 == 0):
+            if not self.moving_left and ok_right:
+                self.moving_right = True
+                for double_ in reversed(self.grid.return_movable_squares(self.shapes[self.current_shape_index].color)):
+                    if ok_right:
+                        self.grid.grid[double_[1]][double_[0]] = "0"
+                        self.grid.grid[double_[1]][double_[0] + 1] = self.shapes[self.current_shape_index].color
+                    else:
+                        for double in self.grid.return_movable_squares(self.shapes[self.current_shape_index].color):
+                            self.grid.grid[double[1]][double[0]] = self.char_to_num[self.shapes[self.current_shape_index].color]
                 if ok_right:
-                    self.grid.grid[double_[1]][double_[0]] = "0"
-                    self.grid.grid[double_[1]][double_[0] + 1] = self.shapes[self.current_shape_index].color
-                else:
-                    for double in self.grid.return_movable_squares(self.shapes[self.current_shape_index].color):
-                        self.grid.grid[double[1]][double[0]] = self.char_to_num[self.shapes[self.current_shape_index].color]
-            if ok_right:
-                self.current_x_index += 1
+                    self.current_x_index += 1
         else:
             self.moving_right = False
 
-        if keys[pygame.K_LEFT] and not self.button_down and not self.moving_right and ok_left:
-            self.moving_left = True
-            movable_squares = self.grid.return_movable_squares(self.shapes[self.current_shape_index].color)
-            for double_ in movable_squares:
+        if keys[pygame.K_LEFT] and (not self.button_down or self.button_count % 13 == 0):
+            if not self.moving_right and ok_left:
+                self.moving_left = True
+                movable_squares = self.grid.return_movable_squares(self.shapes[self.current_shape_index].color)
+                for double_ in movable_squares:
+                    if ok_left:
+                        self.grid.grid[double_[1]][double_[0]] = "0"
+                        self.grid.grid[double_[1]][double_[0] - 1] = self.shapes[self.current_shape_index].color
+                    else:
+                        for double in movable_squares:
+                            self.grid.grid[double[1]][double[0]] = self.char_to_num[self.shapes[self.current_shape_index].color]
                 if ok_left:
-                    self.grid.grid[double_[1]][double_[0]] = "0"
-                    self.grid.grid[double_[1]][double_[0] - 1] = self.shapes[self.current_shape_index].color
-                else:
-                    for double in movable_squares:
-                        self.grid.grid[double[1]][double[0]] = self.char_to_num[self.shapes[self.current_shape_index].color]
-            if ok_left:
-                self.current_x_index -= 1
+                    self.current_x_index -= 1
         else:
             self.moving_left = False
 
