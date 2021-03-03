@@ -7,9 +7,16 @@ from Grid import Grid
 from Square import Square
 from Shapes import *
 
+pygame.init()
+pygame.font.init()
+
+font_size = 40
+my_font = pygame.font.SysFont("Comic Sans", font_size)
+
 
 class Game(object):
     def __init__(self):
+        self.score = 0
         self.running = True
         self.clock = pygame.time.Clock()
         self.edge = pygame.image.load("images/bg.png").convert_alpha()
@@ -123,6 +130,7 @@ class Game(object):
     def check_for_full_line(self):
         if self.grid.check_for_line():
             self.line_full = True
+            return True
 
     def rotate_shape(self, keys):
         ok = None
@@ -218,7 +226,8 @@ class Game(object):
             current_x_index = self.start_next_shape_x
 
     def add_shape(self):
-        self.check_for_full_line()
+        if self.check_for_full_line():
+            self.score += 110 * len(self.grid.full_line_list)
 
         if len(self.next_shape_index) == 1:
             self.next_shape_index.append(random.randint(0, len(self.shapes) - 1))
@@ -379,6 +388,9 @@ class Game(object):
             square.blit_square(3)
         for square in self.next_shape_squares:
             square.blit_square(int(self.char_to_num[self.shapes[self.next_shape_index[-1]].color]) - 1)
+
+        score_text = my_font.render(f"Your score : {self.score}", False, (255, 255, 255))
+        win.blit(score_text, (600, 100))
 
 
 g = Game()
