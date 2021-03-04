@@ -369,6 +369,7 @@ class Game(object):
         self.squares_3 = []
         self.squares_4 = []
         self.movable_squares = []
+        self.score = 0
         time.sleep(2)
         self.game_over_ = False
         self.grid.reset_grid()
