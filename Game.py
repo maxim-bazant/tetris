@@ -47,10 +47,14 @@ class Game(object):
             self.speed = 20
             self.normal_speed = 20
             self.quick_down_speed = 2
+            self.button_speed = 5
         else:
             self.speed = 50
             self.normal_speed = 50
             self.quick_down_speed = 4
+            self.button_speed = 13
+
+        self.already_speed_up = False
 
         self.next_shape_index = [random.randint(0, len(self.shapes) - 1), random.randint(0, len(self.shapes) - 1)]
         self.current_shape_index = 0
@@ -82,8 +86,26 @@ class Game(object):
             if event.type == pygame.QUIT:
                 self.running = False
 
+    def speed_up(self):
+        if not self.already_speed_up:
+            self.already_speed_up = True
+            if self.score > 110 and self.score < 660:
+                self.speed = 20
+                self.normal_speed = 20
+                self.quick_down_speed = 3
+            elif self.score > 660 and self.score < 990:
+                self.speed = 15
+                self.normal_speed = 15
+                self.quick_down_speed = 2
+            elif self.score > 990:
+                self.speed = 7
+                self.normal_speed = 7
+                self.quick_down_speed = 2
+
     def run(self):
         self.blit()
+
+        self.speed_up()
 
         if self.line_full:  # if line full it changes it into "0" instead of "1"
             self.squares_1 = []
@@ -228,6 +250,7 @@ class Game(object):
     def add_shape(self):
         if self.check_for_full_line():
             self.score += 110 * len(self.grid.full_line_list)
+            self.already_speed_up = False
 
         if len(self.next_shape_index) == 1:
             self.next_shape_index.append(random.randint(0, len(self.shapes) - 1))
@@ -316,7 +339,7 @@ class Game(object):
             else:
                 ok_left = False
         # end of control
-        if keys[pygame.K_RIGHT] and (not self.button_down or self.button_count % 13 == 0):
+        if keys[pygame.K_RIGHT] and (not self.button_down or self.button_count % self.button_speed == 0):
             if not self.moving_left and ok_right:
                 self.moving_right = True
                 for double_ in reversed(self.grid.return_movable_squares(self.shapes[self.current_shape_index].color)):
@@ -331,7 +354,7 @@ class Game(object):
         else:
             self.moving_right = False
 
-        if keys[pygame.K_LEFT] and (not self.button_down or self.button_count % 13 == 0):
+        if keys[pygame.K_LEFT] and (not self.button_down or self.button_count % self.button_speed == 0):
             if not self.moving_right and ok_left:
                 self.moving_left = True
                 movable_squares = self.grid.return_movable_squares(self.shapes[self.current_shape_index].color)
