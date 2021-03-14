@@ -253,7 +253,12 @@ class Game(object):
             self.already_speed_up = False
 
         if len(self.next_shape_index) == 1:
-            self.next_shape_index.append(random.randint(0, len(self.shapes) - 1))
+            random_number = random.randint(0, len(self.shapes) - 1)
+            print(random_number in self.next_shape_index)
+            while random_number in self.next_shape_index:
+                random_number = random.randint(0, len(self.shapes) - 1)
+
+            self.next_shape_index.append(random_number)
 
         self.next_shape_squares = []
         self.update_next_shape_grid()
