@@ -393,7 +393,17 @@ class Game(object):
         self.squares_4 = []
         self.movable_squares = []
         self.score = 0
-        time.sleep(2)
+        self.speed = 50
+        self.normal_speed = 50
+        self.quick_down_speed = 4
+        self.button_speed = 13
+
+        win.fill((0, 0, 0))
+        win.blit(pygame.image.load("images/game_over_button.png").convert_alpha(), (220, 270))
+        self.clock.tick(FPS)
+        pygame.display.update()
+        time.sleep(2.5)
+
         self.game_over_ = False
         self.grid.reset_grid()
 
@@ -414,7 +424,7 @@ class Game(object):
             square.blit_square(int(self.char_to_num[self.shapes[self.next_shape_index[-1]].color]) - 1)
 
         score_text = my_font.render(f"Your score : {self.score}", False, (255, 255, 255))
-        win.blit(score_text, (600, 100))
+        win.blit(score_text, (570, 100))
 
 
 g = Game()
