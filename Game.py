@@ -89,17 +89,16 @@ class Game(object):
     def speed_up(self):
         if not self.already_speed_up:
             self.already_speed_up = True
-            if self.score > 110 and self.score < 660:
+            if 110 < self.score < 660:
+                self.speed = 35
+                self.normal_speed = 35
+                self.quick_down_speed = 3
+            elif 660 < self.score < 990:
                 self.speed = 20
                 self.normal_speed = 20
-                self.quick_down_speed = 3
-            elif self.score > 660 and self.score < 990:
+            elif self.score > 990:
                 self.speed = 15
                 self.normal_speed = 15
-                self.quick_down_speed = 2
-            elif self.score > 990:
-                self.speed = 7
-                self.normal_speed = 7
                 self.quick_down_speed = 2
 
     def run(self):

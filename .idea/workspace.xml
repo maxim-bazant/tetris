@@ -96,7 +96,14 @@
       <workItem from="1613945273066" duration="609000" />
       <workItem from="1614005188649" duration="22084000" />
       <workItem from="1614175881006" duration="10000" />
-      <workItem from="1614202568477" duration="14424000" />
+      <workItem from="1614202568477" duration="17023000" />
+      <workItem from="1614504436233" duration="12202000" />
+      <workItem from="1614777001517" duration="10935000" />
+      <workItem from="1614959526869" duration="5212000" />
+      <workItem from="1615140489180" duration="21000" />
+      <workItem from="1615750266195" duration="1178000" />
+      <workItem from="1615754330458" duration="2204000" />
+      <workItem from="1615929519241" duration="603000" />
     </task>
     <task id="LOCAL-00001" summary="falling peaces">
       <created>1611847897281</created>
@@ -364,22 +371,83 @@
       <option name="project" value="LOCAL" />
       <updated>1614442135370</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="small changes">
+      <created>1614443323761</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1614443323761</updated>
+    </task>
+    <task id="LOCAL-00040" summary="small changes in returning doubles in grid">
+      <created>1614443904923</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1614443904923</updated>
+    </task>
+    <task id="LOCAL-00041" summary="multiple char and number checking in grid. for example I was checking if only &quot;1&quot; is in grid now I am checking for all numbers in self.numbers">
+      <created>1614506311973</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1614506311973</updated>
+    </task>
+    <task id="LOCAL-00042" summary="probably different color done!">
+      <created>1614601401403</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1614601401403</updated>
+    </task>
+    <task id="LOCAL-00043" summary="movement improved">
+      <created>1614778949918</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1614778949918</updated>
+    </task>
+    <task id="LOCAL-00044" summary="score">
+      <created>1614784192258</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1614784192258</updated>
+    </task>
+    <task id="LOCAL-00045" summary="done">
+      <created>1614859188573</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1614859188573</updated>
+    </task>
+    <task id="LOCAL-00046" summary="new score achievement">
+      <created>1614962770118</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1614962770118</updated>
+    </task>
+    <task id="LOCAL-00047" summary="game over button">
+      <created>1615750841514</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1615750841515</updated>
+    </task>
+    <task id="LOCAL-00048" summary="shapes repeating problem solved">
+      <created>1615756523232</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1615756523232</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="falling peaces" />
-    <MESSAGE value="start over" />
-    <MESSAGE value="movement" />
-    <MESSAGE value="movement small changes" />
-    <MESSAGE value="control dance" />
-    <MESSAGE value="quick down falling by pressing key down" />
-    <MESSAGE value="slowing down bug done" />
-    <MESSAGE value="game over indicator done" />
-    <MESSAGE value="full line checker" />
     <MESSAGE value="full line check. When full it changes &quot;1&quot; to &quot;0&quot;. Problem is the last shape added to the full line isn't yet blited in the line but above" />
     <MESSAGE value="small changes. Mainly full line checker" />
     <MESSAGE value="small changes, trying out platform module" />
@@ -396,7 +464,16 @@
     <MESSAGE value="next shape mechanism done" />
     <MESSAGE value="next shape displaying done" />
     <MESSAGE value="small changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="small changes" />
+    <MESSAGE value="small changes in returning doubles in grid" />
+    <MESSAGE value="multiple char and number checking in grid. for example I was checking if only &quot;1&quot; is in grid now I am checking for all numbers in self.numbers" />
+    <MESSAGE value="probably different color done!" />
+    <MESSAGE value="movement improved" />
+    <MESSAGE value="score" />
+    <MESSAGE value="done" />
+    <MESSAGE value="new score achievement" />
+    <MESSAGE value="game over button" />
+    <MESSAGE value="shapes repeating problem solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="shapes repeating problem solved" />
   </component>
   <component name="WindowStateProjectService">
     <state x="4576" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612717669621">
@@ -404,10 +481,10 @@
     </state>
     <state x="736" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1611145290487" />
     <state x="4576" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612717669621" />
-    <state x="525" y="282" key="CommitChangelistDialog2" timestamp="1614442133772">
+    <state x="465" y="282" key="CommitChangelistDialog2" timestamp="1615756522354">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="525" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614442133772" />
+    <state x="465" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1615756522354" />
     <state x="4744" y="282" key="CommitChangelistDialog2/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718058902" />
     <state width="1306" height="466" key="DebuggerActiveHint" timestamp="1612717835130">
       <screen x="3840" y="0" width="2560" height="1400" />
@@ -426,34 +503,34 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1099" y="393" key="Github.UntrackedFilesDialog/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1611774636547" />
-    <state width="2517" height="458" key="GridCell.Tab.0.bottom" timestamp="1614443020491">
+    <state width="2517" height="458" key="GridCell.Tab.0.bottom" timestamp="1615756554523">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="458" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614443020491" />
+    <state width="2517" height="458" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1615756554523" />
     <state width="2517" height="649" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="458" key="GridCell.Tab.0.center" timestamp="1614443020490">
+    <state width="2517" height="458" key="GridCell.Tab.0.center" timestamp="1615756554523">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="458" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614443020490" />
+    <state width="2517" height="458" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1615756554523" />
     <state width="2517" height="649" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="458" key="GridCell.Tab.0.left" timestamp="1614443020490">
+    <state width="2517" height="458" key="GridCell.Tab.0.left" timestamp="1615756554522">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="458" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614443020490" />
+    <state width="2517" height="458" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1615756554522" />
     <state width="2517" height="649" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
-    <state width="2517" height="458" key="GridCell.Tab.0.right" timestamp="1614443020490">
+    <state width="2517" height="458" key="GridCell.Tab.0.right" timestamp="1615756554523">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="458" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614443020490" />
+    <state width="2517" height="458" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1615756554523" />
     <state width="2517" height="649" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718233474" />
     <state x="4621" y="345" key="SettingsEditor" timestamp="1612717743062">
       <screen x="3840" y="0" width="2560" height="1400" />
     </state>
     <state x="4621" y="345" key="SettingsEditor/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612717743062" />
-    <state x="873" y="434" key="Vcs.Push.Dialog.v2" timestamp="1614442136846">
+    <state x="873" y="434" key="Vcs.Push.Dialog.v2" timestamp="1615756525164">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="873" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1614442136846" />
+    <state x="873" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1615756525164" />
     <state x="4713" y="434" key="Vcs.Push.Dialog.v2/0.0.2560.1400/3840.0.2560.1400@3840.0.2560.1400" timestamp="1612718062434" />
     <state x="1090" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613853941617">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -470,6 +547,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tetris$.coverage" NAME=" Coverage Results" MODIFIED="1612728468301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/tetris$Game.coverage" NAME="Game Coverage Results" MODIFIED="1614443080034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tetris$Game.coverage" NAME="Game Coverage Results" MODIFIED="1615930126398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
