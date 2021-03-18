@@ -253,7 +253,6 @@ class Game(object):
 
         if len(self.next_shape_index) == 1:
             random_number = random.randint(0, len(self.shapes) - 1)
-            print(random_number in self.next_shape_index)
             while random_number in self.next_shape_index:
                 random_number = random.randint(0, len(self.shapes) - 1)
 
@@ -390,7 +389,6 @@ class Game(object):
         return game_over
 
     def game_over(self):
-        print("game over")
         self.squares_1 = []
         self.squares_2 = []
         self.squares_3 = []
@@ -402,6 +400,7 @@ class Game(object):
         self.quick_down_speed = 4
         self.button_speed = 13
 
+        time.sleep(1)
         win.fill((0, 0, 0))
         win.blit(pygame.image.load("images/game_over_button.png").convert_alpha(), (220, 270))
         self.clock.tick(FPS)
