@@ -40,6 +40,7 @@ class Game(object):
         self.shapes = [DotShape(self.colors[0]), TwoSquareShape(self.colors[1]), FourSquareShape(self.colors[2]),
                        ZShape(self.colors[3]), WShape(self.colors[0]), LShape(self.colors[1]), IShape(self.colors[2])]
         self.button_down = False
+        self.down_button = False
         self.button_count = 0
         self.moving_right = False
         self.moving_left = False
@@ -83,6 +84,7 @@ class Game(object):
             elif event.type == pygame.KEYUP:
                 self.space_down = False
                 self.button_down = False
+                self.down_button = False
             if event.type == pygame.QUIT:
                 self.running = False
 
@@ -371,9 +373,10 @@ class Game(object):
                 if ok_left:
                     self.current_x_index -= 1
         else:
-            self.moving_left = False
+            self.moving_left lse
 
-        if keys[pygame.K_DOWN]:
+        if keys[pygame.K_DOWN] and not self.down_button:
+            self.down_button = True
             self.speed = self.quick_down_speed
 
     def check_if_game_over(self):
