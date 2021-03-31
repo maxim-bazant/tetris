@@ -373,7 +373,7 @@ class Game(object):
                 if ok_left:
                     self.current_x_index -= 1
         else:
-            self.moving_left lse
+            self.moving_left = False
 
         if keys[pygame.K_DOWN] and not self.down_button:
             self.down_button = True
